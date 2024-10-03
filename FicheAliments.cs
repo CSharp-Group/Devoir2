@@ -46,6 +46,11 @@ namespace FicheAliments
             helpToolStripButton.Image = Properties.Resources.Help;
         }
 
-       
+        private void nouveauToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NouveauAliment ficheAliment = new NouveauAliment();
+            ficheAliment.MdiParent = this;
+            ficheAliment.Show();
+        }
     }
 }

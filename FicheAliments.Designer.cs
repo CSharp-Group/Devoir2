@@ -154,8 +154,9 @@
             this.nouveauToolStripMenuItem.Image = global::FicheAliments.Properties.Resources.NewFile_6276_32;
             this.nouveauToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
+            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.nouveauToolStripMenuItem.Text = "&Nouveau";
+            this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.nouveauToolStripMenuItem_Click);
             // 
             // ouvrirToolStripMenuItem
             // 
@@ -190,7 +191,7 @@
             this.enregistrerSousToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("enregistrerSousToolStripMenuItem.Image")));
             this.enregistrerSousToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.enregistrerSousToolStripMenuItem.Name = "enregistrerSousToolStripMenuItem";
-            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
+            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.enregistrerSousToolStripMenuItem.Text = "&Enregistrer sous...";
             // 
             // toolStripSeparator1
@@ -294,25 +295,27 @@
             this.professionnelToolStripMenuItem,
             this.gestionnaireToolStripMenuItem});
             this.barreOutilsToolStripMenuItem.Name = "barreOutilsToolStripMenuItem";
-            this.barreOutilsToolStripMenuItem.Size = new System.Drawing.Size(217, 34);
+            this.barreOutilsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.barreOutilsToolStripMenuItem.Text = "&Barre d\'outils";
             // 
             // systèmeToolStripMenuItem
             // 
+            this.systèmeToolStripMenuItem.Checked = true;
+            this.systèmeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.systèmeToolStripMenuItem.Name = "systèmeToolStripMenuItem";
-            this.systèmeToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
+            this.systèmeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.systèmeToolStripMenuItem.Text = "&Système";
             // 
             // professionnelToolStripMenuItem
             // 
             this.professionnelToolStripMenuItem.Name = "professionnelToolStripMenuItem";
-            this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
+            this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.professionnelToolStripMenuItem.Text = "&Professionnel";
             // 
             // gestionnaireToolStripMenuItem
             // 
             this.gestionnaireToolStripMenuItem.Name = "gestionnaireToolStripMenuItem";
-            this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
+            this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.gestionnaireToolStripMenuItem.Text = "&Gestionnaire";
             // 
             // insertionToolStripMenuItem
