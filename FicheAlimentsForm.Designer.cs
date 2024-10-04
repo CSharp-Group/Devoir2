@@ -113,7 +113,7 @@
             this.topToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.topToolStripPanel.RowMargin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.topToolStripPanel.Size = new System.Drawing.Size(1109, 68);
-            this.topToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.topToolStripPanel_ControlAdded);
+            this.topToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.updateToolStripPanel);
             // 
             // fichesAlimentsMenuStrip
             // 
@@ -149,7 +149,7 @@
             this.toolStripSeparator1,
             this.sortirToolStripMenuItem});
             this.ficherToolStripMenuItem.Name = "ficherToolStripMenuItem";
-            this.ficherToolStripMenuItem.Size = new System.Drawing.Size(78, 31);
+            this.ficherToolStripMenuItem.Size = new System.Drawing.Size(78, 33);
             this.ficherToolStripMenuItem.Text = "&Fichier";
             // 
             // nouveauToolStripMenuItem
@@ -194,7 +194,7 @@
             this.enregistrerSousToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("enregistrerSousToolStripMenuItem.Image")));
             this.enregistrerSousToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.enregistrerSousToolStripMenuItem.Name = "enregistrerSousToolStripMenuItem";
-            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.enregistrerSousToolStripMenuItem.Text = "&Enregistrer sous...";
             // 
             // toolStripSeparator1
@@ -220,7 +220,7 @@
             this.toolStripSeparator4,
             this.rechercherToolStripMenuItem});
             this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
-            this.editionToolStripMenuItem.Size = new System.Drawing.Size(83, 31);
+            this.editionToolStripMenuItem.Size = new System.Drawing.Size(83, 33);
             this.editionToolStripMenuItem.Text = "&Edition";
             // 
             // couperToolStripMenuItem
@@ -288,7 +288,7 @@
             this.affichageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.barreOutilsToolStripMenuItem});
             this.affichageToolStripMenuItem.Name = "affichageToolStripMenuItem";
-            this.affichageToolStripMenuItem.Size = new System.Drawing.Size(103, 31);
+            this.affichageToolStripMenuItem.Size = new System.Drawing.Size(103, 33);
             this.affichageToolStripMenuItem.Text = "&Affichage";
             // 
             // barreOutilsToolStripMenuItem
@@ -324,7 +324,7 @@
             this.insertionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateHeureToolStripMenuItem});
             this.insertionToolStripMenuItem.Name = "insertionToolStripMenuItem";
-            this.insertionToolStripMenuItem.Size = new System.Drawing.Size(105, 31);
+            this.insertionToolStripMenuItem.Size = new System.Drawing.Size(105, 33);
             this.insertionToolStripMenuItem.Text = "&Inserstion";
             // 
             // dateHeureToolStripMenuItem
@@ -338,7 +338,7 @@
             this.formatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.policeToolStripMenuItem});
             this.formatToolStripMenuItem.Name = "formatToolStripMenuItem";
-            this.formatToolStripMenuItem.Size = new System.Drawing.Size(85, 31);
+            this.formatToolStripMenuItem.Size = new System.Drawing.Size(85, 33);
             this.formatToolStripMenuItem.Text = "&Format";
             // 
             // policeToolStripMenuItem
@@ -356,7 +356,7 @@
             this.reorgraniserIconesToolStripMenuItem,
             this.toolStripSeparator2});
             this.fenetreToolStripMenuItem.Name = "fenetreToolStripMenuItem";
-            this.fenetreToolStripMenuItem.Size = new System.Drawing.Size(86, 31);
+            this.fenetreToolStripMenuItem.Size = new System.Drawing.Size(86, 33);
             this.fenetreToolStripMenuItem.Text = "&Fenetre";
             this.fenetreToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.fenetreToolStripMenuItem_Click);
             // 
@@ -405,7 +405,7 @@
             this.aideListeToolStripMenuItem,
             this.aProposToolStripMenuItem});
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(36, 31);
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(36, 33);
             this.aideToolStripMenuItem.Text = "?";
             // 
             // aideListeToolStripMenuItem
@@ -428,7 +428,7 @@
             this.questionToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.questionToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.questionToolStripTextBox.Name = "questionToolStripTextBox";
-            this.questionToolStripTextBox.Size = new System.Drawing.Size(180, 31);
+            this.questionToolStripTextBox.Size = new System.Drawing.Size(180, 33);
             this.questionToolStripTextBox.Text = "Taper une question";
             // 
             // fichesAlimentsToolStrip
@@ -457,7 +457,7 @@
             this.helpToolStripButton});
             this.fichesAlimentsToolStrip.Location = new System.Drawing.Point(5, 35);
             this.fichesAlimentsToolStrip.Name = "fichesAlimentsToolStrip";
-            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(734, 33);
+            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(780, 33);
             this.fichesAlimentsToolStrip.TabIndex = 6;
             this.fichesAlimentsToolStrip.Text = "toolStrip1";
             // 
@@ -609,7 +609,7 @@
             this.leftToolStripPanel.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.leftToolStripPanel.RowMargin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.leftToolStripPanel.Size = new System.Drawing.Size(0, 617);
-            this.leftToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.leftToolStripPanel_ControlAdded);
+            this.leftToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.updateToolStripPanel);
             // 
             // bottomToolStripPanel
             // 
@@ -620,7 +620,7 @@
             this.bottomToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.bottomToolStripPanel.RowMargin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.bottomToolStripPanel.Size = new System.Drawing.Size(1109, 32);
-            this.bottomToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.bottomToolStripPanel_ControlAdded);
+            this.bottomToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.updateToolStripPanel);
             // 
             // ficheAlimentsStatusStrip
             // 
@@ -680,7 +680,7 @@
             this.rightToolStripPanel.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.rightToolStripPanel.RowMargin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.rightToolStripPanel.Size = new System.Drawing.Size(0, 617);
-            this.rightToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.rightToolStripPanel_ControlAdded);
+            this.rightToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.updateToolStripPanel);
             // 
             // Parent
             // 

@@ -95,33 +95,40 @@ namespace FicheAliments
             (sender as ToolStripMenuItem).Checked = true;
         }
 
-        private void rightToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
+        private void updateToolStripPanel(object sender, ControlEventArgs e)
         {
-            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Vertical90;
-            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-            questionToolStripTextBox.Visible = false;
-        }
+            string parentName = e.Control.Parent.Name;
+            ToolStrip item = e.Control as ToolStrip;
+            if (parentName == "leftToolStripPanel" || parentName == "rightToolStripPanel")
+            {
+                item.TextDirection = ToolStripTextDirection.Vertical90;
+                item.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
+                
+                if (item is MenuStrip)
+                {
+                    questionToolStripTextBox.Visible = false;
+                }
+                else
+                {
+                    toolStripComboBox1.Visible = false;
+                    toolStripComboBox2.Visible = false;
+                }
+            }
+            else if (parentName == "topToolStripPanel" || parentName == "bottomToolStripPanel")
+            {
+                item.TextDirection = ToolStripTextDirection.Horizontal;
+                item.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
 
-        private void leftToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
-        {
-            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Vertical90;
-            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-            questionToolStripTextBox.Visible = false;
-
-        }
-
-        private void topToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
-        {
-            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Horizontal;
-            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            questionToolStripTextBox.Visible = true;
-        }
-
-        private void bottomToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
-        {
-            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Horizontal;
-            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            questionToolStripTextBox.Visible = true;
+                if (item is MenuStrip)
+                {
+                    questionToolStripTextBox.Visible = true;
+                } 
+                else
+                {
+                    toolStripComboBox1.Visible = true;
+                    toolStripComboBox2.Visible = true;
+                }
+            }
         }
     }
 }
