@@ -69,30 +69,30 @@ namespace FicheAliments
 
         }
 
-        private void cascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
-        }
 
-        private void mosaiquehorizontaleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
-        }
-
-        private void mosaiqueverticaleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.TileVertical);
-        }
-
-        private void reorgraniserIconesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.ArrangeIcons);
-        }
-
-        private void fenetreToolStripMenuItem_Click(object sender, ToolStripItemClickedEventArgs e)
+        private void layoutMdiMenuItems_Click(object sender, EventArgs e)
         {
             g.EnleverCrochetSousMenu(fenetreToolStripMenuItem);
             (sender as ToolStripMenuItem).Checked = true;
+
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            if (item == mosaiqueverticaleToolStripMenuItem)
+            {
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileVertical);
+            }
+            else if (item == mosaiquehorizontaleToolStripMenuItem)
+            {
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
+            }
+            else if (sender == cascadeToolStripMenuItem)
+            {
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
+            }
+            else
+            {
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.ArrangeIcons);
+            }
         }
 
         private void updateToolStripPanel(object sender, ControlEventArgs e)
@@ -130,5 +130,7 @@ namespace FicheAliments
                 }
             }
         }
+
+        
     }
 }
