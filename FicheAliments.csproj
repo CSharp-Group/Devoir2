@@ -46,16 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FicheAliments.cs">
+    <Compile Include="ClassGeneralcs.cs" />
+    <Compile Include="FicheAlimentEnfantForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FicheAliments.Designer.cs">
-      <DependentUpon>FicheAliments.cs</DependentUpon>
+    <Compile Include="FicheAlimentEnfantForm.Designer.cs">
+      <DependentUpon>FicheAlimentEnfantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicheAlimentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicheAlimentsForm.Designer.cs">
+      <DependentUpon>FicheAlimentsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FicheAliments.resx">
-      <DependentUpon>FicheAliments.cs</DependentUpon>
+    <EmbeddedResource Include="FicheAlimentEnfantForm.resx">
+      <DependentUpon>FicheAlimentEnfantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicheAlimentsForm.resx">
+      <DependentUpon>FicheAlimentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
