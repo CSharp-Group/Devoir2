@@ -88,8 +88,8 @@ namespace FicheAliments
         {
             this.LayoutMdi(System.Windows.Forms.MdiLayout.ArrangeIcons);
         }
-        
-        private void fenetreToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void fenetreToolStripMenuItem_Click(object sender, ToolStripItemClickedEventArgs e)
         {
             g.EnleverCrochetSousMenu(fenetreToolStripMenuItem);
             (sender as ToolStripMenuItem).Checked = true;

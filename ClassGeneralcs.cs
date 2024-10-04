@@ -19,6 +19,10 @@ namespace FicheAliments
                     if (oToolStripItem is ToolStripMenuItem)
                         ((ToolStripMenuItem)oToolStripItem).Checked = false;
 
+                    if (oToolStripItem.Name == "toolStripSeparator2")
+                    {
+                        break;
+                    }
                 }
             }
         }
