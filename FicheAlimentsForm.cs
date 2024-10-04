@@ -69,7 +69,6 @@ namespace FicheAliments
 
         }
 
-
         private void layoutMdiMenuItems_Click(object sender, EventArgs e)
         {
             g.EnleverCrochetSousMenu(fenetreToolStripMenuItem);
