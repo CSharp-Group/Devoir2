@@ -94,5 +94,34 @@ namespace FicheAliments
             g.EnleverCrochetSousMenu(fenetreToolStripMenuItem);
             (sender as ToolStripMenuItem).Checked = true;
         }
+
+        private void rightToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Vertical90;
+            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
+            questionToolStripTextBox.Visible = false;
+        }
+
+        private void leftToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Vertical90;
+            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
+            questionToolStripTextBox.Visible = false;
+
+        }
+
+        private void topToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Horizontal;
+            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            questionToolStripTextBox.Visible = true;
+        }
+
+        private void bottomToolStripPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            fichesAlimentsMenuStrip.TextDirection = ToolStripTextDirection.Horizontal;
+            fichesAlimentsMenuStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            questionToolStripTextBox.Visible = true;
+        }
     }
 }
