@@ -51,7 +51,7 @@
             this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barreOutilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.systèmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.professionnelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionnaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -294,30 +294,38 @@
             // barreOutilsToolStripMenuItem
             // 
             this.barreOutilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.systèmeToolStripMenuItem,
+            this.systemeToolStripMenuItem,
             this.professionnelToolStripMenuItem,
             this.gestionnaireToolStripMenuItem});
             this.barreOutilsToolStripMenuItem.Name = "barreOutilsToolStripMenuItem";
-            this.barreOutilsToolStripMenuItem.Size = new System.Drawing.Size(217, 34);
+            this.barreOutilsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.barreOutilsToolStripMenuItem.Text = "&Barre d\'outils";
             // 
-            // systèmeToolStripMenuItem
+            // systemeToolStripMenuItem
             // 
-            this.systèmeToolStripMenuItem.Name = "systèmeToolStripMenuItem";
-            this.systèmeToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
-            this.systèmeToolStripMenuItem.Text = "&Système";
+            this.systemeToolStripMenuItem.Checked = true;
+            this.systemeToolStripMenuItem.CheckOnClick = true;
+            this.systemeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.systemeToolStripMenuItem.Name = "systemeToolStripMenuItem";
+            this.systemeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.systemeToolStripMenuItem.Text = "&Système";
+            this.systemeToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
             // 
             // professionnelToolStripMenuItem
             // 
+            this.professionnelToolStripMenuItem.CheckOnClick = true;
             this.professionnelToolStripMenuItem.Name = "professionnelToolStripMenuItem";
-            this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
+            this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.professionnelToolStripMenuItem.Text = "&Professionnel";
+            this.professionnelToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
             // 
             // gestionnaireToolStripMenuItem
             // 
+            this.gestionnaireToolStripMenuItem.CheckOnClick = true;
             this.gestionnaireToolStripMenuItem.Name = "gestionnaireToolStripMenuItem";
-            this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
+            this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.gestionnaireToolStripMenuItem.Text = "&Gestionnaire";
+            this.gestionnaireToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
             // 
             // insertionToolStripMenuItem
             // 
@@ -765,7 +773,7 @@
         private System.Windows.Forms.ToolStripMenuItem formatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fenetreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem systèmeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem systemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem professionnelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionnaireToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem policeToolStripMenuItem;

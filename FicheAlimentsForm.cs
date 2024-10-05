@@ -53,7 +53,7 @@ namespace FicheAliments
         private void nouveauToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FicheAlimentEnfantForm oAliment;
-
+            
             try
             {
                 oAliment = new FicheAlimentEnfantForm();
@@ -71,27 +71,32 @@ namespace FicheAliments
 
         private void layoutMdiMenuItems_Click(object sender, EventArgs e)
         {
-            g.EnleverCrochetSousMenu(fenetreToolStripMenuItem);
-            (sender as ToolStripMenuItem).Checked = true;
-
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
-            if (item == mosaiqueverticaleToolStripMenuItem)
-            {
-                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileVertical);
-            }
-            else if (item == mosaiquehorizontaleToolStripMenuItem)
-            {
-                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
-            }
-            else if (sender == cascadeToolStripMenuItem)
-            {
-                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
-            }
-            else
-            {
-                this.LayoutMdi(System.Windows.Forms.MdiLayout.ArrangeIcons);
-            }
+            int layoutInt;
+
+            layoutInt = fenetreToolStripMenuItem.DropDownItems.IndexOf(item);
+            Console.WriteLine(layoutInt);
+
+            this.LayoutMdi((MdiLayout)layoutInt);
+
+            g.EnleverCrochetSousMenu(fenetreToolStripMenuItem);
+            (item).Checked = true;
+        }
+
+        private void affichageMenuStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            int renderModeInt;
+
+            renderModeInt = barreOutilsToolStripMenuItem.DropDownItems.IndexOf(item) + 1;
+            Console.WriteLine(renderModeInt);
+
+            ficheAlimentsStatusStrip.RenderMode = (ToolStripRenderMode)renderModeInt;
+
+            g.EnleverCrochetSousMenu(barreOutilsToolStripMenuItem);
+            (item).Checked = true;
         }
 
         private void updateToolStripPanel(object sender, ControlEventArgs e)
@@ -129,7 +134,5 @@ namespace FicheAliments
                 }
             }
         }
-
-        
     }
 }
