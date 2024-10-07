@@ -59,6 +59,7 @@
     <Compile Include="FicheAlimentsForm.Designer.cs">
       <DependentUpon>FicheAlimentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FicheAlimentEnfantForm.resx">
@@ -77,6 +78,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="FicheAlimentClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
