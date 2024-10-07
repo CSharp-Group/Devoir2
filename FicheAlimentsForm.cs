@@ -58,10 +58,10 @@ namespace FicheAliments
         #region Methodes
 
         #region Formulaire enfant
-        private void nouveauToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FichierNouveauDocument_Click(object sender, EventArgs e)
         {
             FicheAlimentEnfantForm oAliment;
-            
+
             try
             {
                 oAliment = new FicheAlimentEnfantForm();
@@ -71,9 +71,8 @@ namespace FicheAliments
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur");
+                MessageBox.Show($"Erreur: {ex.Message}");
             }
-
         }
         #endregion
 
