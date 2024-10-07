@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FicheAliments.ClassGeneralcs" Collapsed="true">
+    <Position X="5.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAEAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClassGeneralcs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FicheAliments.FicheAlimentEnfantForm" Collapsed="true">
+    <Position X="1.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABQACAAACAACAAAAACAAAACAAAAAAIAAAEAQAABAAg=</HashCode>
+      <FileName>FicheAlimentEnfantForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FicheAliments.Parent" Collapsed="true">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBYmE++ogCEIACmgACGSoBIKZBnQQglBQAAAAAGJAAg=</HashCode>
+      <FileName>FicheAlimentsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FicheAliments.Program" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FicheAliments.Properties.Resources" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAACEAAAAIAAAAAgABEAAACRACAAAQAAAAAAAAAYA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FicheAliments.Properties.Settings" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="5.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
