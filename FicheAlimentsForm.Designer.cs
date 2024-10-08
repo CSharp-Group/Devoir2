@@ -208,6 +208,7 @@
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
             this.sortirToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sortirToolStripMenuItem.Text = "&Quitter";
+            this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
             // 
             // editionToolStripMenuItem
             // 
