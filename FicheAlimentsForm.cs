@@ -146,6 +146,18 @@ namespace FicheAliments
                 }
             }
         }
+
+        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.ActiveControl != null)
+            {
+                FicheAlimentEnfantForm oAliment = this.ActiveMdiChild as FicheAlimentEnfantForm;
+
+                if (oAliment != null)
+                    oAliment.Close();
+            }
+        }
+
         #endregion
 
         #endregion
