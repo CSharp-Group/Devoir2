@@ -119,6 +119,7 @@
             this.Controls.Add(this.nomLabel);
             this.Name = "FicheAlimentEnfantForm";
             this.Text = "Aliment";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FicheAlimentEnfantForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
