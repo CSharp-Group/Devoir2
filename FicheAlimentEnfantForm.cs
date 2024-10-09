@@ -56,14 +56,18 @@ namespace FicheAliments
                 throw new IndexOutOfRangeException("Erreur");
             }
         }
+        private void clientTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Modification = true;
+        }
 
         private void FicheAlimentEnfantForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult oDialogResult;
 
-            if (nomTextBox.Modified || prenomTextBox.Modified || telephoneMaskedTextBox.Modified || infoRichTextBox.Modified || Modification)
+            if (infoRichTextBox.Modified || Modification)
             {
-                oDialogResult = MessageBox.Show("Modification. Enregistrer ?", "Modification", MessageBoxButtons.YesNoCancel);
+                oDialogResult = MessageBox.Show("Voulez vous enregistrer les modification?", "Modification", MessageBoxButtons.YesNoCancel);
 
                 switch (oDialogResult)
                 {
