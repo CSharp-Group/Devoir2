@@ -149,5 +149,45 @@ namespace FicheAliments
         #endregion
 
         #endregion
+
+        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                   
+                    saveFileDialog.Title = "Enregistrer le client";
+                    saveFileDialog.Filter = "Fichiers RTF (*.rtf)|*.rtf|Tous les fichiers (*.*)|*.*";
+                    saveFileDialog.DefaultExt = "rtf";
+                    saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                    // Afficher la boîte de dialogue et vérifier le résultat
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Vérifier l'extension du fichier
+                        string fileExtension = Path.GetExtension(saveFileDialog.FileName).ToLower();
+                        if (fileExtension != ".rtf")
+                        {
+                            MessageBox.Show("L'extension du fichier doit être .RTF.", "Erreur d'extension", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Écrire le contenu dans le fichier (remplacer par votre contenu réel)
+                        File.WriteAllText(saveFileDialog.FileName, "Votre contenu ici"); // Remplacez par le contenu à enregistrer
+                        MessageBox.Show("Fichier enregistré avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'enregistrement : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
     }
 }
