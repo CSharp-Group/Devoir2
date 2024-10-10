@@ -166,13 +166,13 @@ namespace FicheAliments
 
         #endregion
 
-        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void save(object sender, EventArgs e)
         {
             try
             {
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
-                   
+
                     saveFileDialog.Title = "Enregistrer le client";
                     saveFileDialog.Filter = "Fichiers RTF (*.rtf)|*.rtf|Tous les fichiers (*.*)|*.*";
                     saveFileDialog.DefaultExt = "rtf";
@@ -208,6 +208,39 @@ namespace FicheAliments
                 FicheAlimentEnfantForm oEnfant;
                 oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
                 oEnfant.EnregistrerSous();
+            }
+        }
+
+        private void open(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                FicheAlimentEnfantForm oEnfant = new FicheAlimentEnfantForm();
+                oEnfant.MdiParent = this;
+                oEnfant.Text = ofd.FileName;
+
+                // oEnfant.clientRichTextBox.LoadFile(ofd.FileName);
+
+                RichTextBox ortf = new RichTextBox();
+
+                ortf.LoadFile(ofd.FileName);
+                Console.WriteLine(ortf.Lines);
+                oEnfant.nomTextBox.Text = ortf.Lines[0];
+                //oEnfant.prenomTextBox.Text = ortf.Lines[1];
+
+                ortf.SelectionStart = 0;
+                ortf.SelectionLength = ortf.Lines[0].Length + 2; // ne pas oublier changement de ligne
+                ortf.SelectedText = String.Empty;
+
+                oEnfant.infoRichTextBox.Rtf = ortf.Rtf;
+
+                //oEnfant.Enregistrement = true;
+                oEnfant.infoRichTextBox.Modified = false;
+                //oEnfant.Modification = false;
+
+                oEnfant.Show();
             }
         }
     }

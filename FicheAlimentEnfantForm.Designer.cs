@@ -135,9 +135,9 @@
         private System.Windows.Forms.Label prenomLabel;
         private System.Windows.Forms.Label telephoneLabel;
         private System.Windows.Forms.Label infoLabel;
-        private System.Windows.Forms.TextBox nomTextBox;
-        private System.Windows.Forms.TextBox prenomTextBox;
-        private System.Windows.Forms.RichTextBox infoRichTextBox;
-        private System.Windows.Forms.MaskedTextBox telephoneMaskedTextBox;
+        public System.Windows.Forms.TextBox nomTextBox;
+        public System.Windows.Forms.TextBox prenomTextBox;
+        public System.Windows.Forms.RichTextBox infoRichTextBox;
+        public System.Windows.Forms.MaskedTextBox telephoneMaskedTextBox;
     }
 }
