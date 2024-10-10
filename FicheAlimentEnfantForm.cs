@@ -103,8 +103,6 @@ namespace FicheAliments
                 }
             }
         }
-
-
         private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -151,8 +149,7 @@ namespace FicheAliments
                 switch (oDialogResult)
                 {
                     case DialogResult.Yes:
-                        //Enregistrer() 
-                        //Doit attendre que la partie Enregister du ChildForm sois fini
+                        Enregistrer(this);
                         this.Dispose();
                         break;
 
