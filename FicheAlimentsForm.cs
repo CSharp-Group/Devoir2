@@ -1,4 +1,4 @@
-﻿#region Commentaires
+#region Commentaires
 /*
  Programmeurs :  Avery Doucet, Albert Jean-Michiel, Alou Marie-Louise, Umunoza Adolphe, Annoir Idrissa
  Date         :  4 octobre 2024
@@ -148,6 +148,21 @@ namespace FicheAliments
         }
         #endregion
 
+        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.ActiveControl != null)
+            {
+                FicheAlimentEnfantForm oAliment = this.ActiveMdiChild as FicheAlimentEnfantForm;
+
+                if (oAliment != null)
+                    oAliment.Close();
+            }
+        }
+        private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
 
         private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,6 +210,4 @@ namespace FicheAliments
             }
         }
     }
-    }
-
-
+}

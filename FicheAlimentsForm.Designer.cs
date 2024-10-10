@@ -1,4 +1,4 @@
-﻿namespace FicheAliments
+namespace FicheAliments
 {
     partial class Parent
     {
@@ -175,6 +175,7 @@
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
             this.fermerToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.fermerToolStripMenuItem.Text = "&Fermer";
+            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
@@ -208,6 +209,7 @@
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
             this.sortirToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
             this.sortirToolStripMenuItem.Text = "&Quitter";
+            this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
             // 
             // editionToolStripMenuItem
             // 
