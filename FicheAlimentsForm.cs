@@ -187,7 +187,14 @@ namespace FicheAliments
 
         private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+            if (this.ActiveMdiChild != null)
+            {
+                FicheAlimentEnfantForm oEnfant;
+                oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+                oEnfant.EnregistrerSous();
+            }
         }
     }
-}
+    }
+
+
