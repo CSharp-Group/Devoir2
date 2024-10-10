@@ -119,7 +119,7 @@ namespace FicheAliments
             {
                 item.TextDirection = ToolStripTextDirection.Vertical90;
                 item.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-                
+
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = false;
@@ -138,7 +138,7 @@ namespace FicheAliments
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = true;
-                } 
+                }
                 else
                 {
                     toolStripComboBox1.Visible = true;
