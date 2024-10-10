@@ -1,4 +1,4 @@
-#region Commentaires
+﻿#region Commentaires
 /*
  Programmeurs :  Avery Doucet, Albert Jean-Michiel, Alou Marie-Louise, Umunoza Adolphe, Annoir Idrissa
  Date         :  4 octobre 2024
@@ -119,7 +119,7 @@ namespace FicheAliments
             {
                 item.TextDirection = ToolStripTextDirection.Vertical90;
                 item.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-
+                
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = false;
@@ -138,7 +138,7 @@ namespace FicheAliments
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = true;
-                }
+                } 
                 else
                 {
                     toolStripComboBox1.Visible = true;
@@ -147,100 +147,110 @@ namespace FicheAliments
             }
         }
 
+
+
+
+
+
+
+
         #endregion
 
-        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (this.ActiveControl != null)
-            {
-                FicheAlimentEnfantForm oAliment = this.ActiveMdiChild as FicheAlimentEnfantForm;
+        #endregion
 
-                if (oAliment != null)
-                    oAliment.Close();
+        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            try 
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string nom, prenom, tel;
+
+                    FicheAlimentEnfantForm oEnfant = new FicheAlimentEnfantForm();
+                    oEnfant.MdiParent = this;
+                    oEnfant.Text = ofd.FileName;
+
+                    RichTextBox ortf = new RichTextBox();
+
+                    ortf.LoadFile(ofd.FileName);
+
+                    nom = ortf.Lines[0];
+                    prenom = ortf.Lines[1];
+                    tel = ortf.Lines[2];
+
+                    oEnfant.nomTextBox.Text = nom;
+                    oEnfant.prenomTextBox.Text = prenom;
+                    oEnfant.telephoneMaskedTextBox.Text = tel;
+
+                    ortf.SelectionStart = 0;
+                    ortf.SelectionLength = nom.Length + prenom.Length + tel.Length + 3;
+                    ortf.SelectedText = String.Empty;
+
+                    oEnfant.infoRichTextBox.Rtf = ortf.Rtf;
+
+                    oEnfant.Enregistrement = true;
+                    oEnfant.infoRichTextBox.Modified = false;
+                    oEnfant.Modification = false;
+
+                    oEnfant.Show();
+                }
             }
+            catch(Exception ex) 
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+            
         }
+
+        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.ActiveMdiChild != null)
+                {
+                    FicheAlimentEnfantForm oEnfant;
+                    oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+                    oEnfant.Enregistrer();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+            
+        }
+
+        private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.ActiveMdiChild != null)
+                {
+                    FicheAlimentEnfantForm oEnfant;
+                    oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+                    oEnfant.EnregistrerSous();
+                }
+            }
+            catch(Exception ex) 
+            { 
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+            
+        }
+
         private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        #endregion
-
-        private void save(object sender, EventArgs e)
+        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            if (this.ActiveControl != null)
             {
-                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-                {
-
-                    saveFileDialog.Title = "Enregistrer le client";
-                    saveFileDialog.Filter = "Fichiers RTF (*.rtf)|*.rtf|Tous les fichiers (*.*)|*.*";
-                    saveFileDialog.DefaultExt = "rtf";
-                    saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-                    // Afficher la boîte de dialogue et vérifier le résultat
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        // Vérifier l'extension du fichier
-                        string fileExtension = Path.GetExtension(saveFileDialog.FileName).ToLower();
-                        if (fileExtension != ".rtf")
-                        {
-                            MessageBox.Show("L'extension du fichier doit être .RTF.", "Erreur d'extension", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        // Écrire le contenu dans le fichier (remplacer par votre contenu réel)
-                        File.WriteAllText(saveFileDialog.FileName, "Votre contenu ici"); // Remplacez par le contenu à enregistrer
-                        MessageBox.Show("Fichier enregistré avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de l'enregistrement : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (this.ActiveMdiChild != null)
-            {
-                FicheAlimentEnfantForm oEnfant;
-                oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
-                oEnfant.EnregistrerSous();
-            }
-        }
-
-        private void open(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                FicheAlimentEnfantForm oEnfant = new FicheAlimentEnfantForm();
-                oEnfant.MdiParent = this;
-                oEnfant.Text = ofd.FileName;
-
-                // oEnfant.clientRichTextBox.LoadFile(ofd.FileName);
-
-                RichTextBox ortf = new RichTextBox();
-
-                ortf.LoadFile(ofd.FileName);
-                Console.WriteLine(ortf.Lines);
-                oEnfant.nomTextBox.Text = ortf.Lines[0];
-                //oEnfant.prenomTextBox.Text = ortf.Lines[1];
-
-                ortf.SelectionStart = 0;
-                ortf.SelectionLength = ortf.Lines[0].Length + 2; // ne pas oublier changement de ligne
-                ortf.SelectedText = String.Empty;
-
-                oEnfant.infoRichTextBox.Rtf = ortf.Rtf;
-
-                //oEnfant.Enregistrement = true;
-                oEnfant.infoRichTextBox.Modified = false;
-                //oEnfant.Modification = false;
-
-                oEnfant.Show();
+                FicheAlimentEnfantForm oEnfant = (FicheAlimentEnfantForm)this.ActiveControl;
+                oEnfant.Close();
             }
         }
     }

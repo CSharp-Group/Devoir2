@@ -1,4 +1,4 @@
-namespace FicheAliments
+﻿namespace FicheAliments
 {
     partial class Parent
     {
@@ -105,8 +105,8 @@ namespace FicheAliments
             // 
             // topToolStripPanel
             // 
-            this.topToolStripPanel.Controls.Add(this.fichesAlimentsToolStrip);
             this.topToolStripPanel.Controls.Add(this.fichesAlimentsMenuStrip);
+            this.topToolStripPanel.Controls.Add(this.fichesAlimentsToolStrip);
             this.topToolStripPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topToolStripPanel.Location = new System.Drawing.Point(0, 0);
             this.topToolStripPanel.Name = "topToolStripPanel";
@@ -130,7 +130,7 @@ namespace FicheAliments
             this.fenetreToolStripMenuItem,
             this.aideToolStripMenuItem,
             this.questionToolStripTextBox});
-            this.fichesAlimentsMenuStrip.Location = new System.Drawing.Point(0, 33);
+            this.fichesAlimentsMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.fichesAlimentsMenuStrip.MdiWindowListItem = this.fenetreToolStripMenuItem;
             this.fichesAlimentsMenuStrip.Name = "fichesAlimentsMenuStrip";
             this.fichesAlimentsMenuStrip.Size = new System.Drawing.Size(1109, 35);
@@ -157,7 +157,7 @@ namespace FicheAliments
             this.nouveauToolStripMenuItem.Image = global::FicheAliments.Properties.Resources.NewFile_6276_32;
             this.nouveauToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
+            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.nouveauToolStripMenuItem.Text = "&Nouveau";
             this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.FichierNouveauDocument_Click);
             // 
@@ -169,20 +169,20 @@ namespace FicheAliments
             this.ouvrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.ouvrirToolStripMenuItem.Text = "&Ouvrir";
-            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.open);
+            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
             // 
             // fermerToolStripMenuItem
             // 
             this.fermerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
-            this.fermerToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
+            this.fermerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.fermerToolStripMenuItem.Text = "&Fermer";
             this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(256, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(267, 6);
             // 
             // enregistrerToolStripMenuItem
             // 
@@ -190,26 +190,26 @@ namespace FicheAliments
             this.enregistrerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.enregistrerToolStripMenuItem.Text = "&Enregistrer";
-            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.save);
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
             // 
             // enregistrerSousToolStripMenuItem
             // 
             this.enregistrerSousToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("enregistrerSousToolStripMenuItem.Image")));
             this.enregistrerSousToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.enregistrerSousToolStripMenuItem.Name = "enregistrerSousToolStripMenuItem";
-            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
+            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.enregistrerSousToolStripMenuItem.Text = "&Enregistrer sous...";
             this.enregistrerSousToolStripMenuItem.Click += new System.EventHandler(this.enregistrerSousToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(256, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
             // 
             // sortirToolStripMenuItem
             // 
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
-            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
+            this.sortirToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sortirToolStripMenuItem.Text = "&Quitter";
             this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
             // 
@@ -467,9 +467,9 @@ namespace FicheAliments
             this.rightAlignToolStripButton,
             this.toolStripSeparator9,
             this.helpToolStripButton});
-            this.fichesAlimentsToolStrip.Location = new System.Drawing.Point(5, 0);
+            this.fichesAlimentsToolStrip.Location = new System.Drawing.Point(5, 35);
             this.fichesAlimentsToolStrip.Name = "fichesAlimentsToolStrip";
-            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(780, 33);
+            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(734, 33);
             this.fichesAlimentsToolStrip.TabIndex = 6;
             this.fichesAlimentsToolStrip.Text = "toolStrip1";
             // 
@@ -491,7 +491,7 @@ namespace FicheAliments
             this.ouvrireToolStripButton.Name = "ouvrireToolStripButton";
             this.ouvrireToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.ouvrireToolStripButton.Text = "&Open";
-            this.ouvrireToolStripButton.Click += new System.EventHandler(this.open);
+            this.ouvrireToolStripButton.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
             // 
             // enregistrerToolStripButton
             // 
@@ -501,7 +501,7 @@ namespace FicheAliments
             this.enregistrerToolStripButton.Name = "enregistrerToolStripButton";
             this.enregistrerToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.enregistrerToolStripButton.Text = "&Save";
-            this.enregistrerToolStripButton.Click += new System.EventHandler(this.save);
+            this.enregistrerToolStripButton.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -709,7 +709,6 @@ namespace FicheAliments
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.fichesAlimentsMenuStrip;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Parent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fiches des aliments";
