@@ -12,12 +12,11 @@ namespace FicheAliments
 {
     public partial class FicheAlimentEnfantForm : Form
     {
-
         #region variable 
         private bool enregistrementBool = false;
         private bool modificationBool = false;
-        #endregion
         public static int numeroInt = 1;
+        #endregion
 
         public FicheAlimentEnfantForm()
         {
@@ -164,37 +163,6 @@ namespace FicheAliments
                         this.Dispose();
                         break;
                 }
-            }
-        }
-
-        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                FicheAlimentEnfantForm oEnfant = new FicheAlimentEnfantForm();
-                oEnfant.MdiParent = this;
-                oEnfant.Text = ofd.FileName;
-
-                // oEnfant.clientRichTextBox.LoadFile(ofd.FileName);
-
-                RichTextBox ortf = new RichTextBox();
-
-                ortf.LoadFile(ofd.FileName);
-                oEnfant.nomTextBox.Text = ortf.Lines[0];
-
-                ortf.SelectionStart = 0;
-                ortf.SelectionLength = ortf.Lines[0].Length + 1; // ne pas oublier changement de ligne
-                ortf.SelectedText = String.Empty;
-
-                oEnfant.infoRichTextBox.Rtf = ortf.Rtf;
-
-                //oEnfant.Enregistrement = true;
-                oEnfant.infoRichTextBox.Modified = false;
-                //oEnfant.Modification = false;
-
-                oEnfant.Show();
             }
         }
     }
