@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>FicheAliments</RootNamespace>
     <AssemblyName>FicheAliments</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,12 +60,7 @@
     <Compile Include="FicheAlimentsForm.Designer.cs">
       <DependentUpon>FicheAlimentsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NouveauAliment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NouveauAliment.Designer.cs">
-      <DependentUpon>NouveauAliment.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Objet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FicheAlimentEnfantForm.resx">
@@ -86,6 +82,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="FicheAlimentClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

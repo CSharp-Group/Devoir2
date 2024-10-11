@@ -80,6 +80,7 @@
             this.nomTextBox.Name = "nomTextBox";
             this.nomTextBox.Size = new System.Drawing.Size(417, 26);
             this.nomTextBox.TabIndex = 4;
+            this.nomTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
             // 
             // prenomTextBox
             // 
@@ -87,6 +88,7 @@
             this.prenomTextBox.Name = "prenomTextBox";
             this.prenomTextBox.Size = new System.Drawing.Size(417, 26);
             this.prenomTextBox.TabIndex = 5;
+            this.prenomTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
             // 
             // infoRichTextBox
             // 
@@ -95,6 +97,7 @@
             this.infoRichTextBox.Size = new System.Drawing.Size(417, 234);
             this.infoRichTextBox.TabIndex = 7;
             this.infoRichTextBox.Text = "";
+            this.infoRichTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
             // 
             // telephoneMaskedTextBox
             // 
@@ -103,6 +106,7 @@
             this.telephoneMaskedTextBox.Name = "telephoneMaskedTextBox";
             this.telephoneMaskedTextBox.Size = new System.Drawing.Size(165, 26);
             this.telephoneMaskedTextBox.TabIndex = 8;
+            this.telephoneMaskedTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
             // 
             // FicheAlimentEnfantForm
             // 
@@ -119,6 +123,7 @@
             this.Controls.Add(this.nomLabel);
             this.Name = "FicheAlimentEnfantForm";
             this.Text = "Aliment";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FicheAlimentEnfantForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,9 +135,9 @@
         private System.Windows.Forms.Label prenomLabel;
         private System.Windows.Forms.Label telephoneLabel;
         private System.Windows.Forms.Label infoLabel;
-        private System.Windows.Forms.TextBox nomTextBox;
-        private System.Windows.Forms.TextBox prenomTextBox;
-        private System.Windows.Forms.RichTextBox infoRichTextBox;
-        private System.Windows.Forms.MaskedTextBox telephoneMaskedTextBox;
+        public System.Windows.Forms.TextBox nomTextBox;
+        public System.Windows.Forms.TextBox prenomTextBox;
+        public System.Windows.Forms.RichTextBox infoRichTextBox;
+        public System.Windows.Forms.MaskedTextBox telephoneMaskedTextBox;
     }
 }
