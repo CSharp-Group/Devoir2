@@ -303,11 +303,11 @@
             this.professionnelToolStripMenuItem,
             this.gestionnaireToolStripMenuItem});
             this.barreOutilsToolStripMenuItem.Name = "barreOutilsToolStripMenuItem";
-            this.barreOutilsToolStripMenuItem.Size = new System.Drawing.Size(217, 34);
+            this.barreOutilsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.barreOutilsToolStripMenuItem.Text = "&Barre d\'outils";
             // 
             // systemeToolStripMenuItem
-            // 
+            //
             this.systemeToolStripMenuItem.Checked = true;
             this.systemeToolStripMenuItem.CheckOnClick = true;
             this.systemeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -320,7 +320,7 @@
             // 
             this.professionnelToolStripMenuItem.CheckOnClick = true;
             this.professionnelToolStripMenuItem.Name = "professionnelToolStripMenuItem";
-            this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
+            this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.professionnelToolStripMenuItem.Text = "&Professionnel";
             this.professionnelToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
             // 
@@ -328,7 +328,7 @@
             // 
             this.gestionnaireToolStripMenuItem.CheckOnClick = true;
             this.gestionnaireToolStripMenuItem.Name = "gestionnaireToolStripMenuItem";
-            this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
+            this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.gestionnaireToolStripMenuItem.Text = "&Gestionnaire";
             this.gestionnaireToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
             // 
