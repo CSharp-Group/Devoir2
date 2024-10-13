@@ -147,13 +147,6 @@ namespace FicheAliments
             }
         }
 
-
-
-
-
-
-
-
         #endregion
 
         #endregion
@@ -253,5 +246,7 @@ namespace FicheAliments
                 oEnfant.Close();
             }
         }
+
+        
     }
 }
