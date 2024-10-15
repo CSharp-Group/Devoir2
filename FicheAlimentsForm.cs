@@ -292,7 +292,7 @@ namespace FicheAliments
             // Activer des boutons et menus
             nouveauToolStripButton.Enabled = true;
             nouveauToolStripMenuItem.Enabled = true;
-            
+
             ouvrireToolStripButton.Enabled = true;
             ouvrirToolStripMenuItem.Enabled = true;
 
@@ -336,7 +336,8 @@ namespace FicheAliments
             {
                 collerToolStripButton.Enabled = true;
                 collerToolStripMenuItem.Enabled = true;
-            } else
+            }
+            else
             {
                 collerToolStripButton.Enabled = false;
                 collerToolStripMenuItem.Enabled = false;
@@ -419,6 +420,59 @@ namespace FicheAliments
             }
         }
 
-        
+        private void policeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Vérifier si un formulaire enfant est actif
+                if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
+                {
+                    // Déterminer quel bouton a été cliqué et appeler ChangerAttributsPolice
+                    if (sender == boldToolStripButton)
+                    {
+                        if (!oEnfant.infoRichTextBox.SelectionFont.Bold)
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Bold);
+                        }
+                        else
+                        {
+                            // Optionnel : Vous pouvez choisir de retirer le style si déjà appliqué
+                            oEnfant.ChangerAttributsPolice(FontStyle.Regular);
+                        }
+                    }
+                    else if (sender == italicToolStripButton)
+                    {
+                        if (!oEnfant.infoRichTextBox.SelectionFont.Italic)
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Italic);
+                        }
+                        else
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Regular);
+                        }
+                    }
+                    else if (sender == underlineToolStripButton)
+                    {
+                        if (!oEnfant.infoRichTextBox.SelectionFont.Underline)
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Underline);
+                        }
+                        else
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Regular);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Aucun document actif à modifier.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex.Message);
+            }
+
+        }
     }
 }
