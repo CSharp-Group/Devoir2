@@ -169,7 +169,7 @@ namespace FicheAliments
             this.ouvrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.ouvrirToolStripMenuItem.Text = "&Ouvrir";
-            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrir);
+            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.fichierOuvrir);
             // 
             // fermerToolStripMenuItem
             // 
@@ -496,7 +496,7 @@ namespace FicheAliments
             this.ouvrireToolStripButton.Name = "ouvrireToolStripButton";
             this.ouvrireToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.ouvrireToolStripButton.Text = "&Open";
-            this.ouvrireToolStripButton.Click += new System.EventHandler(this.ouvrir);
+            this.ouvrireToolStripButton.Click += new System.EventHandler(this.fichierOuvrir);
             // 
             // enregistrerToolStripButton
             // 
