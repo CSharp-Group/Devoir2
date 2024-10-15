@@ -159,7 +159,7 @@ namespace FicheAliments
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
             this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.nouveauToolStripMenuItem.Text = "&Nouveau";
-            this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.FichierNouveauDocument_Click);
+            this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.FichierNouveau);
             // 
             // ouvrirToolStripMenuItem
             // 
@@ -486,7 +486,7 @@ namespace FicheAliments
             this.nouveauToolStripButton.Name = "nouveauToolStripButton";
             this.nouveauToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.nouveauToolStripButton.Text = "&Nouveau";
-            this.nouveauToolStripButton.Click += new System.EventHandler(this.FichierNouveauDocument_Click);
+            this.nouveauToolStripButton.Click += new System.EventHandler(this.FichierNouveau);
             // 
             // ouvrireToolStripButton
             // 
