@@ -161,7 +161,8 @@ namespace FicheAliments
         #endregion
 
         #region Ouvrir
-        private void fichierOuvrir(object sender, EventArgs e)
+
+        private void FichierOuvrir(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
@@ -215,6 +216,7 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
+
         #endregion
 
         #region Enregistrer
