@@ -217,5 +217,11 @@ namespace FicheAliments
             }
         }
 
+        private void ClientActivated(object sender, EventArgs e)
+        {
+            infoRichTextBox_SelectionChanged(null, null);
+        }
+
+
     }
 }
