@@ -227,7 +227,7 @@ namespace FicheAliments
 
         #region Enregistrer
 
-        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FichierEnregistrer(object sender, EventArgs e)
         {
             try
             {
@@ -236,6 +236,8 @@ namespace FicheAliments
                     FicheAlimentEnfantForm oEnfant;
                     oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
                     oEnfant.Enregistrer();
+
+                    toolStripStatusLabel1.Text = oEnfant.Text;
                 }
             }
             catch (Exception ex)
@@ -247,8 +249,7 @@ namespace FicheAliments
         #endregion
 
         #region EnregistrerSous
-
-        private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FichierEnregistrerSous(object sender, EventArgs e)
         {
             try
             {
@@ -263,7 +264,6 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-
         }
 
         #endregion
