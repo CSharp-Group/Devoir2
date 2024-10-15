@@ -82,10 +82,8 @@ namespace FicheAliments
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
-
             }
         }
-        #endregion
 
         #region Layout
         private void layoutMdiMenuItems_Click(object sender, EventArgs e)
@@ -162,6 +160,7 @@ namespace FicheAliments
 
         #endregion
 
+        #region Ouvrir
         private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -213,10 +212,12 @@ namespace FicheAliments
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
-
             }
-
         }
+
+        #endregion
+
+        #region Enregistrer
 
         private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -233,8 +234,11 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-
         }
+
+        #endregion
+
+        #region EnregistrerSous
 
         private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -254,10 +258,18 @@ namespace FicheAliments
 
         }
 
+        #endregion
+
+        #region Sortir
+
         private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #endregion
+
+        #region Fermer
 
         private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -267,6 +279,10 @@ namespace FicheAliments
                 oEnfant.Close();
             }
         }
+
+        #endregion
+
+        #region DesactiverOperationsMenusBarreOutils
 
         public void DesactiverOperationsMenusBarreOutils()
         {
@@ -299,6 +315,10 @@ namespace FicheAliments
             sortirToolStripMenuItem.Enabled = true;
             aideListeToolStripMenuItem.Enabled = true;
         }
+
+        #endregion
+
+        #region ActiverOperationsMenusBarreOutils
 
         public void ActiverOperationsMenusBarreOutils()
         {
@@ -344,6 +364,8 @@ namespace FicheAliments
             }
         }
 
+        #endregion
+
         #region Alignement
         private void Alignement(object sender, EventArgs e)
         {
@@ -375,13 +397,15 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur lors du changement d'alignement : {ex.Message}");
             }
         }
+
         #endregion
+
+        #region Edition
 
         private void Edition_Click(object sender, EventArgs e)
         {
             try
             {
-
                 FicheAlimentEnfantForm client = (FicheAlimentEnfantForm)this.ActiveMdiChild;
 
                 if (sender == couperToolStripMenuItem || sender == couperToolStripButton)
@@ -404,13 +428,16 @@ namespace FicheAliments
                 {
                     client.infoRichTextBox.SelectAll();
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
+
+        #endregion
+
+        #region MdiChildActivate
 
         public void Parent_MdiChildActivate()
         {
@@ -419,6 +446,10 @@ namespace FicheAliments
                 DesactiverOperationsMenusBarreOutils();
             }
         }
+
+        #endregion
+
+        #region Police
 
         private void policeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -472,7 +503,10 @@ namespace FicheAliments
             {
                 MessageBox.Show("Erreur: " + ex.Message);
             }
-
         }
+
+        #endregion
+
+        #endregion
     }
 }

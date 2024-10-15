@@ -13,14 +13,24 @@ namespace FicheAliments
 {
     public partial class FicheAlimentEnfantForm : Form
     {
+        #region Variables
+        
         public static int numeroInt = 1;
         private bool enregistrementBool = false;
         private bool modificationBool = false;
+
+        #endregion
+
+        #region Initialization
 
         public FicheAlimentEnfantForm()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Enregistrement / Modifications
 
         public bool Enregistrement
         {
@@ -46,6 +56,10 @@ namespace FicheAliments
             }
         }
 
+        #endregion
+
+        #region Numero
+
         public static int Numero()
         {
             try
@@ -57,10 +71,20 @@ namespace FicheAliments
                 throw new IndexOutOfRangeException("Erreur");
             }
         }
+
+        #endregion
+
+        #region Methodes
+
+        #region TextChanged
         private void clientTextBox_TextChanged(object sender, EventArgs e)
         {
             Modification = true;
         }
+
+        #endregion
+
+        #region FormClosing
 
         private void FicheAlimentEnfantForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -96,6 +120,10 @@ namespace FicheAliments
             
         }
 
+        #endregion
+
+        #region Enregistrer
+
         public void Enregistrer()
         {
             try
@@ -127,8 +155,12 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-
         }
+
+        #endregion
+
+        #region EnregistrerSous
+
         public void EnregistrerSous()
         {
             try
@@ -160,8 +192,11 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
         }
+
+        #endregion
+
+        #region SelectionChanged
 
         private void infoRichTextBox_SelectionChanged(object sender, EventArgs e)
         {
@@ -212,6 +247,10 @@ namespace FicheAliments
             }
         }
 
+        #endregion
+
+        #region ChangerAttributsPolice
+
         public void ChangerAttributsPolice(FontStyle style)
         {
             try
@@ -226,11 +265,18 @@ namespace FicheAliments
             }
         }
 
+        #endregion
+
+        #region ClientActivated
+
         private void ClientActivated(object sender, EventArgs e)
         {
             infoRichTextBox_SelectionChanged(null, null);
         }
 
+        #endregion
+
+        #endregion
 
     }
 }
