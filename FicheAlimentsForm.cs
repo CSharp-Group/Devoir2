@@ -219,7 +219,7 @@ namespace FicheAliments
 
         #region Enregistrer
 
-        private void fichierEnregistrer(object sender, EventArgs e)
+        private void FichierEnregistrer(object sender, EventArgs e)
         {
             try
             {
@@ -241,8 +241,7 @@ namespace FicheAliments
         #endregion
 
         #region EnregistrerSous
-
-        private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FichierEnregistrerSous(object sender, EventArgs e)
         {
             try
             {
@@ -257,7 +256,6 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-
         }
 
         #endregion
@@ -457,10 +455,10 @@ namespace FicheAliments
         {
             try
             {
-                // Vérifier si un formulaire enfant est actif
+                // Vï¿½rifier si un formulaire enfant est actif
                 if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
                 {
-                    // Déterminer quel bouton a été cliqué et appeler ChangerAttributsPolice
+                    // Dï¿½terminer quel bouton a ï¿½tï¿½ cliquï¿½ et appeler ChangerAttributsPolice
                     if (sender == boldToolStripButton)
                     {
                         if (!oEnfant.infoRichTextBox.SelectionFont.Bold)
@@ -469,7 +467,7 @@ namespace FicheAliments
                         }
                         else
                         {
-                            // Optionnel : Vous pouvez choisir de retirer le style si déjà appliqué
+                            // Optionnel : Vous pouvez choisir de retirer le style si dï¿½jï¿½ appliquï¿½
                             oEnfant.ChangerAttributsPolice(FontStyle.Regular);
                         }
                     }
@@ -498,7 +496,7 @@ namespace FicheAliments
                 }
                 else
                 {
-                    MessageBox.Show("Aucun document actif à modifier.");
+                    MessageBox.Show("Aucun document actif ï¿½ modifier.");
                 }
             }
             catch (Exception ex)

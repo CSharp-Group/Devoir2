@@ -190,7 +190,7 @@ namespace FicheAliments
             this.enregistrerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.enregistrerToolStripMenuItem.Text = "&Enregistrer";
-            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.fichierEnregistrer);
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.FichierEnregistrer);
             // 
             // enregistrerSousToolStripMenuItem
             // 
@@ -199,7 +199,7 @@ namespace FicheAliments
             this.enregistrerSousToolStripMenuItem.Name = "enregistrerSousToolStripMenuItem";
             this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.enregistrerSousToolStripMenuItem.Text = "&Enregistrer sous...";
-            this.enregistrerSousToolStripMenuItem.Click += new System.EventHandler(this.enregistrerSousToolStripMenuItem_Click);
+            this.enregistrerSousToolStripMenuItem.Click += new System.EventHandler(this.FichierEnregistrerSous);
             // 
             // toolStripSeparator1
             // 
@@ -506,7 +506,7 @@ namespace FicheAliments
             this.enregistrerToolStripButton.Name = "enregistrerToolStripButton";
             this.enregistrerToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.enregistrerToolStripButton.Text = "&Save";
-            this.enregistrerToolStripButton.Click += new System.EventHandler(this.fichierEnregistrer);
+            this.enregistrerToolStripButton.Click += new System.EventHandler(this.FichierEnregistrer);
             // 
             // toolStripSeparator6
             // 
