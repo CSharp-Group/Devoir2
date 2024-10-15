@@ -13,14 +13,24 @@ namespace FicheAliments
 {
     public partial class FicheAlimentEnfantForm : Form
     {
+        #region Variables
+        
         public static int numeroInt = 1;
         private bool enregistrementBool = false;
         private bool modificationBool = false;
+
+        #endregion
+
+        #region Initialization
 
         public FicheAlimentEnfantForm()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Enregistrement / Modifications
 
         public bool Enregistrement
         {
@@ -46,6 +56,10 @@ namespace FicheAliments
             }
         }
 
+        #endregion
+
+        #region Numero
+
         public static int Numero()
         {
             try
@@ -57,10 +71,20 @@ namespace FicheAliments
                 throw new IndexOutOfRangeException("Erreur");
             }
         }
+
+        #endregion
+
+        #region Methodes
+
+        #region TextChanged
         private void clientTextBox_TextChanged(object sender, EventArgs e)
         {
             Modification = true;
         }
+
+        #endregion
+
+        #region FormClosing
 
         private void FicheAlimentEnfantForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -96,6 +120,10 @@ namespace FicheAliments
             
         }
 
+        #endregion
+
+        #region Enregistrer
+
         public void Enregistrer()
         {
             try
@@ -127,8 +155,12 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-
         }
+
+        #endregion
+
+        #region EnregistrerSous
+
         public void EnregistrerSous()
         {
             try
@@ -160,7 +192,91 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
         }
+
+        #endregion
+
+        #region SelectionChanged
+
+        private void infoRichTextBox_SelectionChanged(object sender, EventArgs e)
+        {
+            Parent oParent = this.MdiParent as Parent;
+
+            oParent.boldToolStripButton.Checked = infoRichTextBox.SelectionFont.Bold;
+            oParent.italicToolStripButton.Checked = infoRichTextBox.SelectionFont.Italic;
+            oParent.underlineToolStripButton.Checked = infoRichTextBox.SelectionFont.Underline;
+
+            if(Clipboard.ContainsText() || Clipboard.ContainsImage())
+            {
+                oParent.collerToolStripMenuItem.Enabled = true;
+                oParent.collerToolStripButton.Enabled = true;
+                oParent.couperToolStripMenuItem.Enabled = true;
+                oParent.copierToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                oParent.collerToolStripMenuItem.Enabled = false;
+                oParent.collerToolStripButton.Enabled = false;
+                oParent.couperToolStripMenuItem.Enabled = false;
+                oParent.copierToolStripMenuItem.Enabled = false;
+
+            }
+
+            oParent.copierToolStripMenuItem.Enabled = infoRichTextBox.SelectionLength > 0;
+            oParent.couperToolStripMenuItem.Enabled = infoRichTextBox.SelectionLength > 0;
+            oParent.copierToolStripButton.Enabled = infoRichTextBox.SelectionLength > 0;
+            oParent.couperToolStripButton.Enabled = infoRichTextBox.SelectionLength > 0;
+
+            if (infoRichTextBox.SelectionAlignment == HorizontalAlignment.Left)
+            {
+                oParent.leftAlignToolStripButton.Checked = true; 
+                oParent.centerAlignToolStripButton.Checked = false;
+                oParent.rightAlignToolStripButton.Checked = false;
+            }
+            else if (infoRichTextBox.SelectionAlignment == HorizontalAlignment.Center)
+            {
+                oParent.leftAlignToolStripButton.Checked = false; 
+                oParent.centerAlignToolStripButton.Checked = true; 
+                oParent.rightAlignToolStripButton.Checked = false;
+            }
+            else if (infoRichTextBox.SelectionAlignment == HorizontalAlignment.Right)
+            {
+                oParent.leftAlignToolStripButton.Checked = false; 
+                oParent.centerAlignToolStripButton.Checked = false;
+                oParent.rightAlignToolStripButton.Checked = true; 
+            }
+        }
+
+        #endregion
+
+        #region ChangerAttributsPolice
+
+        public void ChangerAttributsPolice(FontStyle style)
+        {
+            try
+            {
+                if (infoRichTextBox.SelectionFont.FontFamily.IsStyleAvailable(style))
+                    infoRichTextBox.SelectionFont = new Font(infoRichTextBox.SelectionFont,
+                        infoRichTextBox.SelectionFont.Style | style);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        #endregion
+
+        #region ClientActivated
+
+        private void ClientActivated(object sender, EventArgs e)
+        {
+            infoRichTextBox_SelectionChanged(null, null);
+        }
+
+        #endregion
+
+        #endregion
+
     }
 }

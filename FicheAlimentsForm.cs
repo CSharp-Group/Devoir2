@@ -1,4 +1,4 @@
-ï»¿#region Commentaires
+#region Commentaires
 /*
  Programmeurs :  Avery Doucet, Albert Jean-Michiel, Alou Marie-Louise, Umunoza Adolphe, Annoir Idrissa
  Date         :  4 octobre 2024
@@ -39,6 +39,7 @@ namespace FicheAliments
         private void Parent_Load(object sender, EventArgs e)
         {
             AssocierImage();
+            DesactiverOperationsMenusBarreOutils();
         }
         #endregion
 
@@ -73,8 +74,16 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
+
+            try
+            {
+                ActiverOperationsMenusBarreOutils();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
         }
-        #endregion
 
         #region Layout
         private void layoutMdiMenuItems_Click(object sender, EventArgs e)
@@ -119,7 +128,7 @@ namespace FicheAliments
             {
                 item.TextDirection = ToolStripTextDirection.Vertical90;
                 item.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-                
+
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = false;
@@ -138,7 +147,7 @@ namespace FicheAliments
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = true;
-                } 
+                }
                 else
                 {
                     toolStripComboBox1.Visible = true;
@@ -147,22 +156,16 @@ namespace FicheAliments
             }
         }
 
-
-
-
-
-
-
-
         #endregion
 
         #endregion
 
+        #region Ouvrir
         private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            try 
+            try
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -197,12 +200,24 @@ namespace FicheAliments
                     oEnfant.Show();
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
+
+            try
+            {
+                ActiverOperationsMenusBarreOutils();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
         }
+
+        #endregion
+
+        #region Enregistrer
 
         private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -215,12 +230,15 @@ namespace FicheAliments
                     oEnfant.Enregistrer();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
         }
+
+        #endregion
+
+        #region EnregistrerSous
 
         private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -233,17 +251,25 @@ namespace FicheAliments
                     oEnfant.EnregistrerSous();
                 }
             }
-            catch(Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
+
         }
+
+        #endregion
+
+        #region Sortir
 
         private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #endregion
+
+        #region Fermer
 
         private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -253,5 +279,234 @@ namespace FicheAliments
                 oEnfant.Close();
             }
         }
+
+        #endregion
+
+        #region DesactiverOperationsMenusBarreOutils
+
+        public void DesactiverOperationsMenusBarreOutils()
+        {
+            // Placer tout a false.
+            foreach (ToolStripItem item in fichesAlimentsToolStrip.Items)
+            {
+                item.Enabled = false;
+            }
+
+            foreach (ToolStripItem item in fichesAlimentsMenuStrip.Items)
+            {
+                Console.WriteLine($"{item.Name} -> {item.GetType()}");
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    Console.WriteLine($"{item.Name} is MenuItem");
+                    foreach (ToolStripItem subItem in menuItem.DropDownItems)
+                    {
+                        subItem.Enabled = false;
+                    }
+                }
+            }
+
+            // Activer des boutons et menus
+            nouveauToolStripButton.Enabled = true;
+            nouveauToolStripMenuItem.Enabled = true;
+
+            ouvrireToolStripButton.Enabled = true;
+            ouvrirToolStripMenuItem.Enabled = true;
+
+            sortirToolStripMenuItem.Enabled = true;
+            aideListeToolStripMenuItem.Enabled = true;
+        }
+
+        #endregion
+
+        #region ActiverOperationsMenusBarreOutils
+
+        public void ActiverOperationsMenusBarreOutils()
+        {
+            // Placer tout a true.
+            foreach (ToolStripItem item in fichesAlimentsToolStrip.Items)
+            {
+                item.Enabled = true;
+            }
+
+            foreach (ToolStripItem item in fichesAlimentsMenuStrip.Items)
+            {
+                Console.WriteLine($"{item.Name} -> {item.GetType()}");
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    Console.WriteLine($"{item.Name} is MenuItem");
+                    foreach (ToolStripItem subItem in menuItem.DropDownItems)
+                    {
+                        subItem.Enabled = true;
+                    }
+                }
+            }
+
+            // Desactiver des boutons et menus
+            copierToolStripButton.Enabled = false;
+            copierToolStripMenuItem.Enabled = false;
+
+            collerToolStripButton.Enabled = false;
+            collerToolStripMenuItem.Enabled = false;
+
+            couperToolStripButton.Enabled = false;
+            couperToolStripMenuItem.Enabled = false;
+
+            // Check Clipboard
+            if (Clipboard.ContainsText() || Clipboard.ContainsImage())
+            {
+                collerToolStripButton.Enabled = true;
+                collerToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                collerToolStripButton.Enabled = false;
+                collerToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        #endregion
+
+        #region Alignement
+        private void Alignement(object sender, EventArgs e)
+        {
+            try
+            {
+                FicheAlimentEnfantForm oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+
+                if (sender == leftAlignToolStripButton)
+                {
+                    oEnfant.infoRichTextBox.SelectionAlignment = HorizontalAlignment.Left;
+                    centerAlignToolStripButton.Checked = false;
+                    rightAlignToolStripButton.Checked = false;
+                }
+                else if (sender == centerAlignToolStripButton)
+                {
+                    oEnfant.infoRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    leftAlignToolStripButton.Checked = false;
+                    rightAlignToolStripButton.Checked = false;
+                }
+                else if (sender == rightAlignToolStripButton)
+                {
+                    oEnfant.infoRichTextBox.SelectionAlignment = HorizontalAlignment.Right;
+                    leftAlignToolStripButton.Checked = false;
+                    centerAlignToolStripButton.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors du changement d'alignement : {ex.Message}");
+            }
+        }
+
+        #endregion
+
+        #region Edition
+
+        private void Edition_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FicheAlimentEnfantForm client = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+
+                if (sender == couperToolStripMenuItem || sender == couperToolStripButton)
+                {
+                    client.infoRichTextBox.Cut();
+                }
+                else if (sender == copierToolStripMenuItem || sender == copierToolStripButton)
+                {
+                    client.infoRichTextBox.Copy();
+                }
+                else if (sender == collerToolStripMenuItem || sender == collerToolStripButton)
+                {
+                    client.infoRichTextBox.Paste();
+                }
+                else if (sender == effacerToolStripMenuItem)
+                {
+                    client.infoRichTextBox.Clear();
+                }
+                else if (sender == selectionnerToolStripMenuItem)
+                {
+                    client.infoRichTextBox.SelectAll();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        #endregion
+
+        #region MdiChildActivate
+
+        public void Parent_MdiChildActivate()
+        {
+            if (ActiveMdiChild == null)
+            {
+                DesactiverOperationsMenusBarreOutils();
+            }
+        }
+
+        #endregion
+
+        #region Police
+
+        private void policeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Vérifier si un formulaire enfant est actif
+                if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
+                {
+                    // Déterminer quel bouton a été cliqué et appeler ChangerAttributsPolice
+                    if (sender == boldToolStripButton)
+                    {
+                        if (!oEnfant.infoRichTextBox.SelectionFont.Bold)
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Bold);
+                        }
+                        else
+                        {
+                            // Optionnel : Vous pouvez choisir de retirer le style si déjà appliqué
+                            oEnfant.ChangerAttributsPolice(FontStyle.Regular);
+                        }
+                    }
+                    else if (sender == italicToolStripButton)
+                    {
+                        if (!oEnfant.infoRichTextBox.SelectionFont.Italic)
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Italic);
+                        }
+                        else
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Regular);
+                        }
+                    }
+                    else if (sender == underlineToolStripButton)
+                    {
+                        if (!oEnfant.infoRichTextBox.SelectionFont.Underline)
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Underline);
+                        }
+                        else
+                        {
+                            oEnfant.ChangerAttributsPolice(FontStyle.Regular);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Aucun document actif à modifier.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #endregion
     }
 }

@@ -97,6 +97,7 @@
             this.infoRichTextBox.Size = new System.Drawing.Size(417, 234);
             this.infoRichTextBox.TabIndex = 7;
             this.infoRichTextBox.Text = "";
+            this.infoRichTextBox.SelectionChanged += new System.EventHandler(this.infoRichTextBox_SelectionChanged);
             this.infoRichTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
             // 
             // telephoneMaskedTextBox
@@ -123,6 +124,7 @@
             this.Controls.Add(this.nomLabel);
             this.Name = "FicheAlimentEnfantForm";
             this.Text = "Aliment";
+            this.Activated += new System.EventHandler(this.ClientActivated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FicheAlimentEnfantForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
