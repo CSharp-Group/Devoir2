@@ -177,7 +177,7 @@ namespace FicheAliments
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
             this.fermerToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.fermerToolStripMenuItem.Text = "&Fermer";
-            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
+            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.Fermer_Click);
             // 
             // toolStripSeparator
             // 
@@ -211,7 +211,7 @@ namespace FicheAliments
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
             this.sortirToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.sortirToolStripMenuItem.Text = "&Quitter";
-            this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
+            this.sortirToolStripMenuItem.Click += new System.EventHandler(this.Quitter_Click);
             // 
             // editionToolStripMenuItem
             // 
@@ -319,7 +319,7 @@ namespace FicheAliments
             this.systemeToolStripMenuItem.Name = "systemeToolStripMenuItem";
             this.systemeToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
             this.systemeToolStripMenuItem.Text = "&Système";
-            this.systemeToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
+            this.systemeToolStripMenuItem.Click += new System.EventHandler(this.Affichage_Click);
             // 
             // professionnelToolStripMenuItem
             // 
@@ -327,7 +327,7 @@ namespace FicheAliments
             this.professionnelToolStripMenuItem.Name = "professionnelToolStripMenuItem";
             this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
             this.professionnelToolStripMenuItem.Text = "&Professionnel";
-            this.professionnelToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
+            this.professionnelToolStripMenuItem.Click += new System.EventHandler(this.Affichage_Click);
             // 
             // gestionnaireToolStripMenuItem
             // 
@@ -335,7 +335,7 @@ namespace FicheAliments
             this.gestionnaireToolStripMenuItem.Name = "gestionnaireToolStripMenuItem";
             this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
             this.gestionnaireToolStripMenuItem.Text = "&Gestionnaire";
-            this.gestionnaireToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
+            this.gestionnaireToolStripMenuItem.Click += new System.EventHandler(this.Affichage_Click);
             // 
             // insertionToolStripMenuItem
             // 
@@ -566,7 +566,7 @@ namespace FicheAliments
             this.boldToolStripButton.Name = "boldToolStripButton";
             this.boldToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.boldToolStripButton.Text = "toolStripButton1";
-            this.boldToolStripButton.Click += new System.EventHandler(this.policeToolStripMenuItem_Click);
+            this.boldToolStripButton.Click += new System.EventHandler(this.StylePolice_Click);
             // 
             // italicToolStripButton
             // 
@@ -576,7 +576,7 @@ namespace FicheAliments
             this.italicToolStripButton.Name = "italicToolStripButton";
             this.italicToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.italicToolStripButton.Text = "toolStripButton2";
-            this.italicToolStripButton.Click += new System.EventHandler(this.policeToolStripMenuItem_Click);
+            this.italicToolStripButton.Click += new System.EventHandler(this.StylePolice_Click);
             // 
             // underlineToolStripButton
             // 
@@ -586,7 +586,7 @@ namespace FicheAliments
             this.underlineToolStripButton.Name = "underlineToolStripButton";
             this.underlineToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.underlineToolStripButton.Text = "toolStripButton3";
-            this.underlineToolStripButton.Click += new System.EventHandler(this.policeToolStripMenuItem_Click);
+            this.underlineToolStripButton.Click += new System.EventHandler(this.StylePolice_Click);
             // 
             // toolStripSeparator8
             // 
@@ -601,7 +601,7 @@ namespace FicheAliments
             this.leftAlignToolStripButton.Name = "leftAlignToolStripButton";
             this.leftAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.leftAlignToolStripButton.Text = "toolStripButton4";
-            this.leftAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
+            this.leftAlignToolStripButton.Click += new System.EventHandler(this.Alignement_Click);
             // 
             // rightAlignToolStripButton
             // 
@@ -611,7 +611,7 @@ namespace FicheAliments
             this.rightAlignToolStripButton.Name = "rightAlignToolStripButton";
             this.rightAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.rightAlignToolStripButton.Text = "toolStripButton6";
-            this.rightAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
+            this.rightAlignToolStripButton.Click += new System.EventHandler(this.Alignement_Click);
             // 
             // centerAlignToolStripButton
             // 
@@ -621,7 +621,7 @@ namespace FicheAliments
             this.centerAlignToolStripButton.Name = "centerAlignToolStripButton";
             this.centerAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.centerAlignToolStripButton.Text = "toolStripButton5";
-            this.centerAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
+            this.centerAlignToolStripButton.Click += new System.EventHandler(this.Alignement_Click);
             // 
             // toolStripSeparator9
             // 

@@ -61,7 +61,6 @@ namespace FicheAliments
         #region Formulaire enfant
 
         #region Nouveau
-
         private void FichierNouveau(object sender, EventArgs e)
         {
             FicheAlimentEnfantForm oEnfant;
@@ -88,7 +87,6 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region Layout
@@ -109,7 +107,7 @@ namespace FicheAliments
         #endregion
 
         #region Affichage
-        private void affichageMenuStripMenuItem_Click(object sender, EventArgs e)
+        private void Affichage_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
@@ -123,6 +121,8 @@ namespace FicheAliments
             g.EnleverCrochetSousMenu(barreOutilsToolStripMenuItem);
             (item).Checked = true;
         }
+        #endregion
+        
         #endregion
 
         #region ToolStripPanel
@@ -161,13 +161,9 @@ namespace FicheAliments
                 }
             }
         }
-
-        #endregion
-
         #endregion
 
         #region Ouvrir
-
         private void FichierOuvrir(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -222,11 +218,9 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region Enregistrer
-
         private void FichierEnregistrer(object sender, EventArgs e)
         {
             try
@@ -245,7 +239,6 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region EnregistrerSous
@@ -265,21 +258,17 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
-        #region Sortir
-
-        private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Sortir / Quitter
+        private void Quitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         #endregion
 
         #region Fermer
-
-        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Fermer_Click(object sender, EventArgs e)
         {
             if (this.ActiveControl != null)
             {
@@ -287,11 +276,9 @@ namespace FicheAliments
                 oEnfant.Close();
             }
         }
-
         #endregion
 
         #region DesactiverOperationsMenusBarreOutils
-
         public void DesactiverOperationsMenusBarreOutils()
         {
             // Placer tout a false.
@@ -323,11 +310,9 @@ namespace FicheAliments
             sortirToolStripMenuItem.Enabled = true;
             aideListeToolStripMenuItem.Enabled = true;
         }
-
         #endregion
 
         #region ActiverOperationsMenusBarreOutils
-
         public void ActiverOperationsMenusBarreOutils()
         {
             // Placer tout a true.
@@ -371,11 +356,10 @@ namespace FicheAliments
                 collerToolStripMenuItem.Enabled = false;
             }
         }
-
         #endregion
 
         #region Alignement
-        private void Alignement(object sender, EventArgs e)
+        private void Alignement_Click(object sender, EventArgs e)
         {
             try
             {
@@ -405,11 +389,9 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur lors du changement d'alignement : {ex.Message}");
             }
         }
-
         #endregion
 
         #region Edition
-
         private void Edition_Click(object sender, EventArgs e)
         {
             try
@@ -442,11 +424,9 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region MdiChildActivate
-
         public void Parent_MdiChildActivate()
         {
             if (ActiveMdiChild == null)
@@ -454,12 +434,10 @@ namespace FicheAliments
                 DesactiverOperationsMenusBarreOutils();
             }
         }
-
         #endregion
 
-        #region Police
-
-        private void policeToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Style Police
+        private void StylePolice_Click(object sender, EventArgs e)
         {
             try
             {
@@ -512,7 +490,6 @@ namespace FicheAliments
                 MessageBox.Show("Erreur: " + ex.Message);
             }
         }
-
         #endregion
 
         #endregion
