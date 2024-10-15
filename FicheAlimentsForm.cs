@@ -161,7 +161,7 @@ namespace FicheAliments
         #endregion
 
         #region Ouvrir
-        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ouvrir(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
@@ -174,6 +174,7 @@ namespace FicheAliments
                     FicheAlimentEnfantForm oEnfant = new FicheAlimentEnfantForm();
                     oEnfant.MdiParent = this;
                     oEnfant.Text = ofd.FileName;
+                    oEnfant.ModeInsertion = true;
 
                     RichTextBox ortf = new RichTextBox();
 
@@ -455,10 +456,10 @@ namespace FicheAliments
         {
             try
             {
-                // Vérifier si un formulaire enfant est actif
+                // Vï¿½rifier si un formulaire enfant est actif
                 if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
                 {
-                    // Déterminer quel bouton a été cliqué et appeler ChangerAttributsPolice
+                    // Dï¿½terminer quel bouton a ï¿½tï¿½ cliquï¿½ et appeler ChangerAttributsPolice
                     if (sender == boldToolStripButton)
                     {
                         if (!oEnfant.infoRichTextBox.SelectionFont.Bold)
@@ -467,7 +468,7 @@ namespace FicheAliments
                         }
                         else
                         {
-                            // Optionnel : Vous pouvez choisir de retirer le style si déjà appliqué
+                            // Optionnel : Vous pouvez choisir de retirer le style si dï¿½jï¿½ appliquï¿½
                             oEnfant.ChangerAttributsPolice(FontStyle.Regular);
                         }
                     }
@@ -496,7 +497,7 @@ namespace FicheAliments
                 }
                 else
                 {
-                    MessageBox.Show("Aucun document actif à modifier.");
+                    MessageBox.Show("Aucun document actif ï¿½ modifier.");
                 }
             }
             catch (Exception ex)
