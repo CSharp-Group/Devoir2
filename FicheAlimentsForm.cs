@@ -34,6 +34,7 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
+            DesactiverOperationsMenusBarreOutils();
         }
 
         private void Parent_Load(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace FicheAliments
             {
                 item.TextDirection = ToolStripTextDirection.Vertical90;
                 item.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-                
+
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = false;
@@ -138,7 +139,7 @@ namespace FicheAliments
                 if (item is MenuStrip)
                 {
                     questionToolStripTextBox.Visible = true;
-                } 
+                }
                 else
                 {
                     toolStripComboBox1.Visible = true;
@@ -162,7 +163,7 @@ namespace FicheAliments
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            try 
+            try
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -197,11 +198,11 @@ namespace FicheAliments
                     oEnfant.Show();
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
+
         }
 
         private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -215,11 +216,11 @@ namespace FicheAliments
                     oEnfant.Enregistrer();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
+
         }
 
         private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,11 +234,11 @@ namespace FicheAliments
                     oEnfant.EnregistrerSous();
                 }
             }
-            catch(Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-            
+
         }
 
         private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,6 +253,86 @@ namespace FicheAliments
                 FicheAlimentEnfantForm oEnfant = (FicheAlimentEnfantForm)this.ActiveControl;
                 oEnfant.Close();
             }
+        }
+
+        public void DesactiverOperationsMenusBarreOutils()
+        {
+            // Placer tout a false.
+            foreach (ToolStripItem item in fichesAlimentsToolStrip.Items)
+            {
+                item.Enabled = false;
+            }
+
+            foreach (ToolStripItem item in fichesAlimentsMenuStrip.Items)
+            {
+                Console.WriteLine($"{item.Name} -> {item.GetType()}");
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    Console.WriteLine($"{item.Name} is MenuItem");
+                    foreach (ToolStripItem subItem in menuItem.DropDownItems)
+                    {
+                        subItem.Enabled = false;
+                    }
+                }
+            }
+
+            // Activer des boutons et menus
+            nouveauToolStripButton.Enabled = true;
+            nouveauToolStripMenuItem.Enabled = true;
+            
+            ouvrireToolStripButton.Enabled = true;
+            ouvrirToolStripMenuItem.Enabled = true;
+
+            sortirToolStripMenuItem.Enabled = true;
+            aideListeToolStripMenuItem.Enabled = true;
+        }
+
+        public void ActiverOperationsMenusBarreOutils()
+        {
+            // Placer tout a true.
+            foreach (ToolStripItem item in fichesAlimentsToolStrip.Items)
+            {
+                item.Enabled = true;
+            }
+
+            foreach (ToolStripItem item in fichesAlimentsMenuStrip.Items)
+            {
+                Console.WriteLine($"{item.Name} -> {item.GetType()}");
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    Console.WriteLine($"{item.Name} is MenuItem");
+                    foreach (ToolStripItem subItem in menuItem.DropDownItems)
+                    {
+                        subItem.Enabled = true;
+                    }
+                }
+            }
+
+            // Desactiver des boutons et menus
+            copierToolStripButton.Enabled = false;
+            copierToolStripMenuItem.Enabled = false;
+
+            collerToolStripButton.Enabled = false;
+            collerToolStripMenuItem.Enabled = false;
+
+            couperToolStripButton.Enabled = false;
+            couperToolStripMenuItem.Enabled = false;
+
+            // Check Clipboard
+            if (Clipboard.ContainsText() || Clipboard.ContainsImage())
+            {
+                collerToolStripButton.Enabled = true;
+                collerToolStripMenuItem.Enabled = true;
+            } else
+            {
+                collerToolStripButton.Enabled = false;
+                collerToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ActiverOperationsMenusBarreOutils();
         }
     }
 }
