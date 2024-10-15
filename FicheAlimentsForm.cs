@@ -71,6 +71,7 @@ namespace FicheAliments
                 oAliment = new FicheAlimentEnfantForm();
                 oAliment.Text = oAliment.Text + " " + FicheAlimentEnfantForm.Numero().ToString();
                 oAliment.MdiParent = this;
+                oAliment.ModeInsertion = true;
                 oAliment.Show();
             }
             catch (Exception ex)
