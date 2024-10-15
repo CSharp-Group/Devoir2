@@ -64,15 +64,15 @@ namespace FicheAliments
 
         private void FichierNouveau(object sender, EventArgs e)
         {
-            FicheAlimentEnfantForm oAliment;
+            FicheAlimentEnfantForm oEnfant;
 
             try
             {
-                oAliment = new FicheAlimentEnfantForm();
-                oAliment.Text = oAliment.Text + " " + FicheAlimentEnfantForm.Numero().ToString();
-                oAliment.MdiParent = this;
-                oAliment.ModeInsertion = true;
-                oAliment.Show();
+                oEnfant = new FicheAlimentEnfantForm();
+                oEnfant.Text = oEnfant.Text + " " + FicheAlimentEnfantForm.Numero().ToString();
+                oEnfant.MdiParent = this;
+                oEnfant.ModeInsertion = true;
+                oEnfant.Show();
             }
             catch (Exception ex)
             {
