@@ -228,6 +228,8 @@ namespace FicheAliments
                     FicheAlimentEnfantForm oEnfant;
                     oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
                     oEnfant.Enregistrer();
+
+                    toolStripStatusLabel1.Text = oEnfant.Text;
                 }
             }
             catch (Exception ex)
