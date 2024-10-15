@@ -175,13 +175,15 @@ namespace FicheAliments
             {
                 oParent.collerToolStripMenuItem.Enabled = true;
                 oParent.collerToolStripButton.Enabled = true;
-                oParent.boldToolStripButton.Enabled = true;
+                oParent.couperToolStripMenuItem.Enabled = true;
+                oParent.copierToolStripMenuItem.Enabled = true;
             }
             else
             {
                 oParent.collerToolStripMenuItem.Enabled = false;
                 oParent.collerToolStripButton.Enabled = false;
-                oParent.boldToolStripButton.Enabled = false;
+                oParent.couperToolStripMenuItem.Enabled = false;
+                oParent.copierToolStripMenuItem.Enabled = false;
 
             }
 

@@ -34,12 +34,12 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
-            DesactiverOperationsMenusBarreOutils();
         }
 
         private void Parent_Load(object sender, EventArgs e)
         {
             AssocierImage();
+            DesactiverOperationsMenusBarreOutils();
         }
         #endregion
 
