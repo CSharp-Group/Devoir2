@@ -356,5 +356,53 @@ namespace FicheAliments
             }
         }
         #endregion
+
+        private void Edition_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                FicheAlimentEnfantForm client = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+
+                if (sender == couperToolStripMenuItem || sender == couperToolStripButton)
+                {
+                    client.infoRichTextBox.Cut();
+                }
+                else if (sender == copierToolStripMenuItem || sender == copierToolStripButton)
+                {
+                    client.infoRichTextBox.Copy();
+                }
+                else if (sender == collerToolStripMenuItem || sender == collerToolStripButton)
+                {
+                    client.infoRichTextBox.Paste();
+                }
+                else if (sender == effacerToolStripMenuItem)
+                {
+                    client.infoRichTextBox.Clear();
+                }
+                else if (sender == selectionnerToolStripMenuItem)
+                {
+                    client.infoRichTextBox.SelectAll();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        private void FichierNouveau()
+        {
+            try
+            {
+                ActiverOperationsMenusBarreOutils();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+
+            }
+        }
     }
 }
