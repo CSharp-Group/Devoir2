@@ -1,4 +1,4 @@
-﻿#region Commentaires
+#region Commentaires
 /*
  Programmeurs :  Avery Doucet, Albert Jean-Michiel, Alou Marie-Louise, Umunoza Adolphe, Annoir Idrissa
  Date         :  4 octobre 2024
@@ -329,5 +329,39 @@ namespace FicheAliments
                 collerToolStripMenuItem.Enabled = false;
             }
         }
+
+        #region Alignement
+        private void Alignement(object sender)
+        {
+            try
+            {
+                FicheAlimentEnfantForm oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+
+                if (sender == leftAlignToolStripButton)
+                {
+                    
+                    oEnfant.infoRichTextBox.SelectionAlignment = HorizontalAlignment.Left;
+                    centerAlignToolStripButton.Checked = false;
+                    rightAlignToolStripButton.Checked = false;
+                }
+                else if (sender == centerAlignToolStripButton)
+                {
+                    oEnfant.infoRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    leftAlignToolStripButton.Checked = false;
+                    rightAlignToolStripButton.Checked = false;
+                }
+                else if (sender == rightAlignToolStripButton)
+                {
+                    oEnfant.infoRichTextBox.SelectionAlignment = HorizontalAlignment.Right;
+                    leftAlignToolStripButton.Checked = false;
+                    centerAlignToolStripButton.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors du changement d'alignement : {ex.Message}");
+            }
+        }
+        #endregion
     }
 }
