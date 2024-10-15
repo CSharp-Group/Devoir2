@@ -175,11 +175,14 @@ namespace FicheAliments
             {
                 oParent.collerToolStripMenuItem.Enabled = true;
                 oParent.collerToolStripButton.Enabled = true;
+                oParent.boldToolStripButton.Enabled = true;
             }
             else
             {
                 oParent.collerToolStripMenuItem.Enabled = false;
                 oParent.collerToolStripButton.Enabled = false;
+                oParent.boldToolStripButton.Enabled = false;
+
             }
 
             oParent.copierToolStripMenuItem.Enabled = infoRichTextBox.SelectionLength > 0;
@@ -207,7 +210,7 @@ namespace FicheAliments
             }
         }
 
-        private void ChangerAttributsPolice(FontStyle style)
+        public void ChangerAttributsPolice(FontStyle style)
         {
             try
             {

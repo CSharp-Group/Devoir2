@@ -74,6 +74,16 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
+
+            try
+            {
+                ActiverOperationsMenusBarreOutils();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+
+            }
         }
         #endregion
 
@@ -194,6 +204,16 @@ namespace FicheAliments
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
+            }
+
+            try
+            {
+                ActiverOperationsMenusBarreOutils();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+
             }
 
         }
@@ -324,7 +344,7 @@ namespace FicheAliments
         }
 
         #region Alignement
-        private void Alignement(object sender)
+        private void Alignement(object sender, EventArgs e)
         {
             try
             {
@@ -332,7 +352,6 @@ namespace FicheAliments
 
                 if (sender == leftAlignToolStripButton)
                 {
-                    
                     oEnfant.infoRichTextBox.SelectionAlignment = HorizontalAlignment.Left;
                     centerAlignToolStripButton.Checked = false;
                     rightAlignToolStripButton.Checked = false;
@@ -392,25 +411,14 @@ namespace FicheAliments
             }
         }
 
-        private void FichierNouveau()
-        {
-            try
-            {
-                ActiverOperationsMenusBarreOutils();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur: {ex.Message}");
-
-            }
-        }
-
-        private void Parent_MdiChildActivate()
+        public void Parent_MdiChildActivate()
         {
             if (ActiveMdiChild == null)
             {
                 DesactiverOperationsMenusBarreOutils();
             }
         }
+
+        
     }
 }

@@ -463,8 +463,8 @@
             this.underlineToolStripButton,
             this.toolStripSeparator8,
             this.leftAlignToolStripButton,
-            this.centerAlignToolStripButton,
             this.rightAlignToolStripButton,
+            this.centerAlignToolStripButton,
             this.toolStripSeparator9,
             this.helpToolStripButton});
             this.fichesAlimentsToolStrip.Location = new System.Drawing.Point(5, 35);
@@ -590,6 +590,7 @@
             this.leftAlignToolStripButton.Name = "leftAlignToolStripButton";
             this.leftAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.leftAlignToolStripButton.Text = "toolStripButton4";
+            this.leftAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
             // 
             // centerAlignToolStripButton
             // 
@@ -599,6 +600,7 @@
             this.centerAlignToolStripButton.Name = "centerAlignToolStripButton";
             this.centerAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.centerAlignToolStripButton.Text = "toolStripButton5";
+            this.centerAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
             // 
             // rightAlignToolStripButton
             // 
@@ -608,6 +610,7 @@
             this.rightAlignToolStripButton.Name = "rightAlignToolStripButton";
             this.rightAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.rightAlignToolStripButton.Text = "toolStripButton6";
+            this.rightAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
             // 
             // toolStripSeparator9
             // 
