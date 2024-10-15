@@ -59,7 +59,10 @@ namespace FicheAliments
         #region Methodes
 
         #region Formulaire enfant
-        private void FichierNouveauDocument_Click(object sender, EventArgs e)
+
+        #region Nouveau
+
+        private void FichierNouveau(object sender, EventArgs e)
         {
             FicheAlimentEnfantForm oAliment;
 
@@ -84,6 +87,8 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
+
+        #endregion
 
         #region Layout
         private void layoutMdiMenuItems_Click(object sender, EventArgs e)
