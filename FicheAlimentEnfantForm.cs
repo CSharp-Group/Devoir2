@@ -21,6 +21,20 @@ namespace FicheAliments
 
         #endregion
 
+        #region Propriétés
+        public bool ModeInsertion
+        {
+            get
+            {
+                return infoRichTextBox.SelectionProtected;
+            }
+            set
+            {
+                infoRichTextBox.SelectionProtected = value;
+            }
+        }
+        #endregion
+
         #region Initialization
 
         public FicheAlimentEnfantForm()
