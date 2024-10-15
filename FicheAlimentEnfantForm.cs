@@ -174,14 +174,18 @@ namespace FicheAliments
             if(Clipboard.ContainsText() || Clipboard.ContainsImage())
             {
                 oParent.collerToolStripMenuItem.Enabled = true;
+                oParent.collerToolStripButton.Enabled = true;
             }
             else
             {
                 oParent.collerToolStripMenuItem.Enabled = false;
+                oParent.collerToolStripButton.Enabled = false;
             }
 
             oParent.copierToolStripMenuItem.Enabled = infoRichTextBox.SelectionLength > 0;
             oParent.couperToolStripMenuItem.Enabled = infoRichTextBox.SelectionLength > 0;
+            oParent.copierToolStripButton.Enabled = infoRichTextBox.SelectionLength > 0;
+            oParent.couperToolStripButton.Enabled = infoRichTextBox.SelectionLength > 0;
 
             if (infoRichTextBox.SelectionAlignment == HorizontalAlignment.Left)
             {
