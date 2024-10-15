@@ -219,7 +219,7 @@ namespace FicheAliments
 
         #region Enregistrer
 
-        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fichierEnregistrer(object sender, EventArgs e)
         {
             try
             {

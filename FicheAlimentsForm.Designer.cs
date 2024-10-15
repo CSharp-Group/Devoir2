@@ -1,4 +1,4 @@
-﻿namespace FicheAliments
+namespace FicheAliments
 {
     partial class Parent
     {
@@ -190,7 +190,7 @@
             this.enregistrerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.enregistrerToolStripMenuItem.Text = "&Enregistrer";
-            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.fichierEnregistrer);
             // 
             // enregistrerSousToolStripMenuItem
             // 
@@ -506,7 +506,7 @@
             this.enregistrerToolStripButton.Name = "enregistrerToolStripButton";
             this.enregistrerToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.enregistrerToolStripButton.Text = "&Save";
-            this.enregistrerToolStripButton.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
+            this.enregistrerToolStripButton.Click += new System.EventHandler(this.fichierEnregistrer);
             // 
             // toolStripSeparator6
             // 
