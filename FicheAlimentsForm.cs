@@ -148,13 +148,6 @@ namespace FicheAliments
             }
         }
 
-
-
-
-
-
-
-
         #endregion
 
         #endregion
