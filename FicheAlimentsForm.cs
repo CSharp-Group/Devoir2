@@ -404,5 +404,13 @@ namespace FicheAliments
 
             }
         }
+
+        private void Parent_MdiChildActivate()
+        {
+            if (ActiveMdiChild == null)
+            {
+                DesactiverOperationsMenusBarreOutils();
+            }
+        }
     }
 }
