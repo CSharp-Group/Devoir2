@@ -231,7 +231,7 @@ namespace FicheAliments
                     oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
                     oEnfant.Enregistrer();
 
-                    toolStripStatusLabel1.Text = oEnfant.Text;
+                    ficherToolStripStatusLabel.Text = oEnfant.Text;
                 }
             }
             catch (Exception ex)
@@ -490,6 +490,28 @@ namespace FicheAliments
                 MessageBox.Show("Erreur: " + ex.Message);
             }
         }
+        #endregion
+
+        #region MdiChildActivate
+
+        private void Parent_MdiChildActivate(object sender, EventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+
+            if (this.ActiveMdiChild == null)
+            {
+                ficherToolStripStatusLabel.Text = "Crée ou ouvrir un aliment";
+                DesactiverOperationsMenusBarreOutils();
+            }
+            else
+            {
+                if (oEnfant.ModeInsertion)
+                {
+                    ficherToolStripStatusLabel.Text = this.ActiveMdiChild.Text;
+                }
+            }
+        }
+
         #endregion
 
         #endregion
