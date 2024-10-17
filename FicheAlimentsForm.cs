@@ -512,8 +512,6 @@ namespace FicheAliments
             }
         }
 
-     
-
         #endregion
 
         #endregion
