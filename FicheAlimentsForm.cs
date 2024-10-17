@@ -42,8 +42,6 @@ namespace FicheAliments
         {
             AssocierImage();
             DesactiverOperationsMenusBarreOutils();
-            
-
         }
         #endregion
 
@@ -495,9 +493,7 @@ namespace FicheAliments
             }
         }
         #endregion
-
         
-
         #region KeyDown
 
         private void Parent_KeyDown(object sender, KeyEventArgs e)
