@@ -93,9 +93,9 @@ namespace FicheAliments
             this.ficheAlimentsStatusStrip = new System.Windows.Forms.StatusStrip();
             this.ficherToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.insertStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.langueToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.rightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
-            this.insertStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.topToolStripPanel.SuspendLayout();
             this.fichesAlimentsMenuStrip.SuspendLayout();
             this.fichesAlimentsToolStrip.SuspendLayout();
@@ -689,6 +689,17 @@ namespace FicheAliments
             this.capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
             this.capsToolStripStatusLabel.Size = new System.Drawing.Size(40, 25);
             // 
+            // insertStripStatusLabel
+            // 
+            this.insertStripStatusLabel.AutoSize = false;
+            this.insertStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.insertStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.insertStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
+            this.insertStripStatusLabel.Name = "insertStripStatusLabel";
+            this.insertStripStatusLabel.Size = new System.Drawing.Size(40, 25);
+            // 
             // langueToolStripStatusLabel
             // 
             this.langueToolStripStatusLabel.Name = "langueToolStripStatusLabel";
@@ -704,17 +715,6 @@ namespace FicheAliments
             this.rightToolStripPanel.RowMargin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.rightToolStripPanel.Size = new System.Drawing.Size(0, 617);
             this.rightToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.updateToolStripPanel);
-            // 
-            // insertStripStatusLabel
-            // 
-            this.insertStripStatusLabel.AutoSize = false;
-            this.insertStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.insertStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            this.insertStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
-            this.insertStripStatusLabel.Name = "insertStripStatusLabel";
-            this.insertStripStatusLabel.Size = new System.Drawing.Size(40, 25);
             // 
             // Parent
             // 
@@ -735,7 +735,6 @@ namespace FicheAliments
             this.Load += new System.EventHandler(this.Parent_Load);
             this.MdiChildActivate += new System.EventHandler(this.Parent_MdiChildActivate);
             this.Click += new System.EventHandler(this.Edition_Click);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parent_KeyDown);
             this.topToolStripPanel.ResumeLayout(false);
             this.topToolStripPanel.PerformLayout();
             this.fichesAlimentsMenuStrip.ResumeLayout(false);
