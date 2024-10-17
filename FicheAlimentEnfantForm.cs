@@ -22,6 +22,7 @@ namespace FicheAliments
         #endregion
 
         #region Propriétés
+
         public bool ModeInsertion
         {
             get
@@ -33,19 +34,18 @@ namespace FicheAliments
                 infoRichTextBox.SelectionProtected = value;
             }
         }
-        #endregion
 
-        #region Initialization
-
-        public FicheAlimentEnfantForm()
+        public static int Numero()
         {
-            InitializeComponent();
+            try
+            {
+                return numeroInt++;
+            }
+            catch
+            {
+                throw new IndexOutOfRangeException("Erreur");
+            }
         }
-
-        #endregion
-
-        #region Enregistrement / Modifications
-
         public bool Enregistrement
         {
             get
@@ -72,35 +72,26 @@ namespace FicheAliments
 
         #endregion
 
-        #region Numero
+        #region Initialization
 
-        public static int Numero()
+        public FicheAlimentEnfantForm()
         {
-            try
-            {
-                return numeroInt++;
-            }
-            catch
-            {
-                throw new IndexOutOfRangeException("Erreur");
-            }
+            InitializeComponent();
         }
 
         #endregion
 
         #region Methodes
 
-        #region TextChanged
-        private void clientTextBox_TextChanged(object sender, EventArgs e)
+        #region Text Changed
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
             Modification = true;
         }
-
         #endregion
 
         #region FormClosing
-
-        private void FicheAlimentEnfantForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void EnfantFormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult oDialogResult;
 
@@ -133,11 +124,9 @@ namespace FicheAliments
             }
             
         }
-
         #endregion
 
         #region Enregistrer
-
         public void Enregistrer()
         {
             try
@@ -170,11 +159,9 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region EnregistrerSous
-
         public void EnregistrerSous()
         {
             try
@@ -207,11 +194,9 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region SelectionChanged
-
         private void infoRichTextBox_SelectionChanged(object sender, EventArgs e)
         {
             Parent oParent = this.MdiParent as Parent;
@@ -260,11 +245,9 @@ namespace FicheAliments
                 oParent.rightAlignToolStripButton.Checked = true; 
             }
         }
-
         #endregion
 
         #region ChangerAttributsPolice
-
         public void ChangerAttributsPolice(FontStyle style)
         {
             try
@@ -278,16 +261,13 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region ClientActivated
-
         private void ClientActivated(object sender, EventArgs e)
         {
             infoRichTextBox_SelectionChanged(null, null);
         }
-
         #endregion
 
         #endregion
