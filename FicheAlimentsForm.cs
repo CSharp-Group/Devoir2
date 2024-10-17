@@ -42,6 +42,11 @@ namespace FicheAliments
         {
             AssocierImage();
             DesactiverOperationsMenusBarreOutils();
+            langueToolStripStatusLabel.Text = CultureInfo.CurrentCulture.NativeName;
+            if (System.Console.CapsLock)
+                capsToolStripStatusLabel.Text = "MAJ";
+            else
+                capsToolStripStatusLabel.Text = "";
         }
         #endregion
 
