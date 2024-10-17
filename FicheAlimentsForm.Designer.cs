@@ -91,9 +91,9 @@ namespace FicheAliments
             this.leftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.bottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ficheAlimentsStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ficherToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.insertStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.langueToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.rightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.topToolStripPanel.SuspendLayout();
@@ -474,7 +474,7 @@ namespace FicheAliments
             this.helpToolStripButton});
             this.fichesAlimentsToolStrip.Location = new System.Drawing.Point(5, 35);
             this.fichesAlimentsToolStrip.Name = "fichesAlimentsToolStrip";
-            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(780, 33);
+            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(734, 33);
             this.fichesAlimentsToolStrip.TabIndex = 6;
             this.fichesAlimentsToolStrip.Text = "toolStrip1";
             // 
@@ -662,9 +662,9 @@ namespace FicheAliments
             this.ficheAlimentsStatusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.ficheAlimentsStatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.ficheAlimentsStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel3,
-            this.toolStripStatusLabel2,
+            this.ficherToolStripStatusLabel,
+            this.capsToolStripStatusLabel,
+            this.insertStripStatusLabel,
             this.langueToolStripStatusLabel});
             this.ficheAlimentsStatusStrip.Location = new System.Drawing.Point(0, 0);
             this.ficheAlimentsStatusStrip.Name = "ficheAlimentsStatusStrip";
@@ -672,34 +672,33 @@ namespace FicheAliments
             this.ficheAlimentsStatusStrip.TabIndex = 7;
             this.ficheAlimentsStatusStrip.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // ficherToolStripStatusLabel
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(212, 25);
-            this.toolStripStatusLabel1.Text = "Crée ou ouvrir un aliment";
+            this.ficherToolStripStatusLabel.Name = "ficherToolStripStatusLabel";
+            this.ficherToolStripStatusLabel.Size = new System.Drawing.Size(212, 25);
+            this.ficherToolStripStatusLabel.Text = "Crée ou ouvrir un aliment";
             // 
-            // toolStripStatusLabel3
+            // capsToolStripStatusLabel
             // 
-            this.toolStripStatusLabel3.AutoSize = false;
-            this.toolStripStatusLabel3.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            this.capsToolStripStatusLabel.AutoSize = false;
+            this.capsToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel3.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
-            this.toolStripStatusLabel3.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(40, 25);
+            this.capsToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
+            this.capsToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
+            this.capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
+            this.capsToolStripStatusLabel.Size = new System.Drawing.Size(40, 25);
             // 
-            // toolStripStatusLabel2
+            // insertStripStatusLabel
             // 
-            this.toolStripStatusLabel2.AutoSize = false;
-            this.toolStripStatusLabel2.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripStatusLabel2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            this.insertStripStatusLabel.AutoSize = false;
+            this.insertStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
-            this.toolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(40, 25);
+            this.insertStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.insertStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
+            this.insertStripStatusLabel.Name = "insertStripStatusLabel";
+            this.insertStripStatusLabel.Size = new System.Drawing.Size(40, 25);
             // 
             // langueToolStripStatusLabel
             // 
@@ -728,11 +727,13 @@ namespace FicheAliments
             this.Controls.Add(this.bottomToolStripPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.fichesAlimentsMenuStrip;
             this.Name = "Parent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fiches des aliments";
             this.Load += new System.EventHandler(this.Parent_Load);
+            this.MdiChildActivate += new System.EventHandler(this.Parent_MdiChildActivate);
             this.Click += new System.EventHandler(this.Edition_Click);
             this.topToolStripPanel.ResumeLayout(false);
             this.topToolStripPanel.PerformLayout();
@@ -800,9 +801,8 @@ namespace FicheAliments
         private System.Windows.Forms.ToolStripMenuItem aideListeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox questionToolStripTextBox;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel ficherToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel capsToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel langueToolStripStatusLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         internal System.Windows.Forms.ToolStripButton boldToolStripButton;
@@ -818,6 +818,7 @@ namespace FicheAliments
         internal System.Windows.Forms.ToolStripButton copierToolStripButton;
         internal System.Windows.Forms.ToolStripButton collerToolStripButton;
         internal System.Windows.Forms.ToolStrip fichesAlimentsToolStrip;
+        private System.Windows.Forms.ToolStripStatusLabel insertStripStatusLabel;
     }
 }
 
