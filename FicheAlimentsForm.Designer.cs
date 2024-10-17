@@ -91,7 +91,7 @@ namespace FicheAliments
             this.leftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.bottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ficheAlimentsStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.ficherToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.fichierStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.insertStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.langueToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -662,7 +662,7 @@ namespace FicheAliments
             this.ficheAlimentsStatusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.ficheAlimentsStatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.ficheAlimentsStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ficherToolStripStatusLabel,
+            this.fichierStripStatusLabel,
             this.capsToolStripStatusLabel,
             this.insertStripStatusLabel,
             this.langueToolStripStatusLabel});
@@ -672,11 +672,11 @@ namespace FicheAliments
             this.ficheAlimentsStatusStrip.TabIndex = 7;
             this.ficheAlimentsStatusStrip.Text = "statusStrip1";
             // 
-            // ficherToolStripStatusLabel
+            // fichierStripStatusLabel
             // 
-            this.ficherToolStripStatusLabel.Name = "ficherToolStripStatusLabel";
-            this.ficherToolStripStatusLabel.Size = new System.Drawing.Size(212, 25);
-            this.ficherToolStripStatusLabel.Text = "Crée ou ouvrir un aliment";
+            this.fichierStripStatusLabel.Name = "fichierStripStatusLabel";
+            this.fichierStripStatusLabel.Size = new System.Drawing.Size(212, 25);
+            this.fichierStripStatusLabel.Text = "Crée ou ouvrir un aliment";
             // 
             // capsToolStripStatusLabel
             // 
@@ -735,6 +735,7 @@ namespace FicheAliments
             this.Load += new System.EventHandler(this.Parent_Load);
             this.MdiChildActivate += new System.EventHandler(this.Parent_MdiChildActivate);
             this.Click += new System.EventHandler(this.Edition_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parent_KeyDown);
             this.topToolStripPanel.ResumeLayout(false);
             this.topToolStripPanel.PerformLayout();
             this.fichesAlimentsMenuStrip.ResumeLayout(false);
@@ -801,7 +802,7 @@ namespace FicheAliments
         private System.Windows.Forms.ToolStripMenuItem aideListeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox questionToolStripTextBox;
-        private System.Windows.Forms.ToolStripStatusLabel ficherToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel fichierStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel capsToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel langueToolStripStatusLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;

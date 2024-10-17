@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,7 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
+
         }
 
         private void Parent_Load(object sender, EventArgs e)
@@ -231,7 +233,7 @@ namespace FicheAliments
                     oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
                     oEnfant.Enregistrer();
 
-                    ficherToolStripStatusLabel.Text = oEnfant.Text;
+                    fichierStripStatusLabel.Text = oEnfant.Text;
                 }
             }
             catch (Exception ex)
@@ -491,6 +493,35 @@ namespace FicheAliments
             }
         }
         #endregion
+        
+        #region KeyDown
+
+        private void Parent_KeyDown(object sender, KeyEventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                capsToolStripStatusLabel.Text = "MAJ";
+            else
+                capsToolStripStatusLabel.Text = "";
+
+            if (e.KeyCode == Keys.Insert)
+            {
+                if (insertStripStatusLabel.Text == "INS")
+                {
+                    insertStripStatusLabel.Text = "RFP";
+                    (this.ActiveMdiChild as FicheAlimentEnfantForm).ModeInsertion = false;
+                }
+            }
+            else
+            {
+                if (oEnfant != null)
+                {
+                    insertStripStatusLabel.Text = "INS";
+                    (this.ActiveMdiChild as FicheAlimentEnfantForm).ModeInsertion = true;
+                }
+            }
+        }
 
         #region MdiChildActivate
 
@@ -516,4 +547,9 @@ namespace FicheAliments
 
         #endregion
     }
+
+
+
+    #endregion
+
 }
