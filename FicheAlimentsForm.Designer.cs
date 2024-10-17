@@ -92,7 +92,7 @@ namespace FicheAliments
             this.bottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ficheAlimentsStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.langueToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.rightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -474,7 +474,7 @@ namespace FicheAliments
             this.helpToolStripButton});
             this.fichesAlimentsToolStrip.Location = new System.Drawing.Point(5, 35);
             this.fichesAlimentsToolStrip.Name = "fichesAlimentsToolStrip";
-            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(780, 33);
+            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(734, 33);
             this.fichesAlimentsToolStrip.TabIndex = 6;
             this.fichesAlimentsToolStrip.Text = "toolStrip1";
             // 
@@ -663,7 +663,7 @@ namespace FicheAliments
             this.ficheAlimentsStatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.ficheAlimentsStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel3,
+            this.capsToolStripStatusLabel,
             this.toolStripStatusLabel2,
             this.langueToolStripStatusLabel});
             this.ficheAlimentsStatusStrip.Location = new System.Drawing.Point(0, 0);
@@ -678,16 +678,16 @@ namespace FicheAliments
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(212, 25);
             this.toolStripStatusLabel1.Text = "Crée ou ouvrir un aliment";
             // 
-            // toolStripStatusLabel3
+            // capsToolStripStatusLabel
             // 
-            this.toolStripStatusLabel3.AutoSize = false;
-            this.toolStripStatusLabel3.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            this.capsToolStripStatusLabel.AutoSize = false;
+            this.capsToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel3.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
-            this.toolStripStatusLabel3.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(40, 25);
+            this.capsToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
+            this.capsToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
+            this.capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
+            this.capsToolStripStatusLabel.Size = new System.Drawing.Size(40, 25);
             // 
             // toolStripStatusLabel2
             // 
@@ -801,7 +801,7 @@ namespace FicheAliments
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox questionToolStripTextBox;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel capsToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel langueToolStripStatusLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
