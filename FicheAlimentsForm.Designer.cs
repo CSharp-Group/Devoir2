@@ -733,6 +733,7 @@ namespace FicheAliments
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fiches des aliments";
             this.Load += new System.EventHandler(this.Parent_Load);
+            this.MdiChildActivate += new System.EventHandler(this.Parent_MdiChildActivate);
             this.Click += new System.EventHandler(this.Edition_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parent_KeyDown);
             this.topToolStripPanel.ResumeLayout(false);
