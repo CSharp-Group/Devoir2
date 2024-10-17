@@ -122,6 +122,7 @@
             this.Controls.Add(this.telephoneLabel);
             this.Controls.Add(this.prenomLabel);
             this.Controls.Add(this.nomLabel);
+            this.KeyPreview = true;
             this.Name = "FicheAlimentEnfantForm";
             this.Text = "Aliment";
             this.Activated += new System.EventHandler(this.ClientActivated);
