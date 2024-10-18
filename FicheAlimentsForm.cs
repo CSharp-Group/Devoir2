@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,12 +35,18 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
+
         }
 
         private void Parent_Load(object sender, EventArgs e)
         {
             AssocierImage();
             DesactiverOperationsMenusBarreOutils();
+            langueToolStripStatusLabel.Text = CultureInfo.CurrentCulture.NativeName;
+            if (System.Console.CapsLock)
+                capsToolStripStatusLabel.Text = "MAJ";
+            else
+                capsToolStripStatusLabel.Text = "";
         }
         #endregion
 
@@ -59,16 +66,19 @@ namespace FicheAliments
         #region Methodes
 
         #region Formulaire enfant
-        private void FichierNouveauDocument_Click(object sender, EventArgs e)
+
+        #region Nouveau
+        private void FichierNouveau(object sender, EventArgs e)
         {
-            FicheAlimentEnfantForm oAliment;
+            FicheAlimentEnfantForm oEnfant;
 
             try
             {
-                oAliment = new FicheAlimentEnfantForm();
-                oAliment.Text = oAliment.Text + " " + FicheAlimentEnfantForm.Numero().ToString();
-                oAliment.MdiParent = this;
-                oAliment.Show();
+                oEnfant = new FicheAlimentEnfantForm();
+                oEnfant.Text = oEnfant.Text + " " + FicheAlimentEnfantForm.Numero().ToString();
+                oEnfant.MdiParent = this;
+                oEnfant.ModeInsertion = true;
+                oEnfant.Show();
             }
             catch (Exception ex)
             {
@@ -84,6 +94,7 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
+        #endregion
 
         #region Layout
         private void layoutMdiMenuItems_Click(object sender, EventArgs e)
@@ -103,7 +114,7 @@ namespace FicheAliments
         #endregion
 
         #region Affichage
-        private void affichageMenuStripMenuItem_Click(object sender, EventArgs e)
+        private void Affichage_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
@@ -117,6 +128,8 @@ namespace FicheAliments
             g.EnleverCrochetSousMenu(barreOutilsToolStripMenuItem);
             (item).Checked = true;
         }
+        #endregion
+        
         #endregion
 
         #region ToolStripPanel
@@ -155,13 +168,10 @@ namespace FicheAliments
                 }
             }
         }
-
-        #endregion
-
         #endregion
 
         #region Ouvrir
-        private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FichierOuvrir(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
@@ -174,6 +184,7 @@ namespace FicheAliments
                     FicheAlimentEnfantForm oEnfant = new FicheAlimentEnfantForm();
                     oEnfant.MdiParent = this;
                     oEnfant.Text = ofd.FileName;
+                    oEnfant.ModeInsertion = true;
 
                     RichTextBox ortf = new RichTextBox();
 
@@ -214,12 +225,10 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region Enregistrer
-
-        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FichierEnregistrer(object sender, EventArgs e)
         {
             try
             {
@@ -228,6 +237,8 @@ namespace FicheAliments
                     FicheAlimentEnfantForm oEnfant;
                     oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
                     oEnfant.Enregistrer();
+
+                    ficherToolStripStatusLabel.Text = oEnfant.Text;
                 }
             }
             catch (Exception ex)
@@ -235,12 +246,10 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region EnregistrerSous
-
-        private void enregistrerSousToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FichierEnregistrerSous(object sender, EventArgs e)
         {
             try
             {
@@ -255,23 +264,18 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
-
         }
-
         #endregion
 
-        #region Sortir
-
-        private void sortirToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Sortir / Quitter
+        private void Quitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         #endregion
 
         #region Fermer
-
-        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Fermer_Click(object sender, EventArgs e)
         {
             if (this.ActiveControl != null)
             {
@@ -279,11 +283,9 @@ namespace FicheAliments
                 oEnfant.Close();
             }
         }
-
         #endregion
 
         #region DesactiverOperationsMenusBarreOutils
-
         public void DesactiverOperationsMenusBarreOutils()
         {
             // Placer tout a false.
@@ -315,11 +317,9 @@ namespace FicheAliments
             sortirToolStripMenuItem.Enabled = true;
             aideListeToolStripMenuItem.Enabled = true;
         }
-
         #endregion
 
         #region ActiverOperationsMenusBarreOutils
-
         public void ActiverOperationsMenusBarreOutils()
         {
             // Placer tout a true.
@@ -363,11 +363,10 @@ namespace FicheAliments
                 collerToolStripMenuItem.Enabled = false;
             }
         }
-
         #endregion
 
         #region Alignement
-        private void Alignement(object sender, EventArgs e)
+        private void Alignement_Click(object sender, EventArgs e)
         {
             try
             {
@@ -397,11 +396,9 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur lors du changement d'alignement : {ex.Message}");
             }
         }
-
         #endregion
 
         #region Edition
-
         private void Edition_Click(object sender, EventArgs e)
         {
             try
@@ -434,11 +431,9 @@ namespace FicheAliments
                 MessageBox.Show($"Erreur: {ex.Message}");
             }
         }
-
         #endregion
 
         #region MdiChildActivate
-
         public void Parent_MdiChildActivate()
         {
             if (ActiveMdiChild == null)
@@ -446,19 +441,17 @@ namespace FicheAliments
                 DesactiverOperationsMenusBarreOutils();
             }
         }
-
         #endregion
 
-        #region Police
-
-        private void policeToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Style Police
+        private void StylePolice_Click(object sender, EventArgs e)
         {
             try
             {
-                // Vérifier si un formulaire enfant est actif
+                // Vï¿½rifier si un formulaire enfant est actif
                 if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
                 {
-                    // Déterminer quel bouton a été cliqué et appeler ChangerAttributsPolice
+                    // Dï¿½terminer quel bouton a ï¿½tï¿½ cliquï¿½ et appeler ChangerAttributsPolice
                     if (sender == boldToolStripButton)
                     {
                         if (!oEnfant.infoRichTextBox.SelectionFont.Bold)
@@ -467,7 +460,7 @@ namespace FicheAliments
                         }
                         else
                         {
-                            // Optionnel : Vous pouvez choisir de retirer le style si déjà appliqué
+                            // Optionnel : Vous pouvez choisir de retirer le style si dï¿½jï¿½ appliquï¿½
                             oEnfant.ChangerAttributsPolice(FontStyle.Regular);
                         }
                     }
@@ -496,7 +489,7 @@ namespace FicheAliments
                 }
                 else
                 {
-                    MessageBox.Show("Aucun document actif à modifier.");
+                    MessageBox.Show("Aucun document actif ï¿½ modifier.");
                 }
             }
             catch (Exception ex)
@@ -504,9 +497,65 @@ namespace FicheAliments
                 MessageBox.Show("Erreur: " + ex.Message);
             }
         }
+        #endregion
+        
+        #region KeyDown
+
+        private void Parent_KeyDown(object sender, KeyEventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                capsToolStripStatusLabel.Text = "MAJ";
+            else
+                capsToolStripStatusLabel.Text = "";
+
+            if (e.KeyCode == Keys.Insert)
+            {
+                if (insertStripStatusLabel.Text == "INS")
+                {
+                    insertStripStatusLabel.Text = "RFP";
+                    (this.ActiveMdiChild as FicheAlimentEnfantForm).ModeInsertion = false;
+                }
+            }
+            else
+            {
+                if (oEnfant != null)
+                {
+                    insertStripStatusLabel.Text = "INS";
+                    (this.ActiveMdiChild as FicheAlimentEnfantForm).ModeInsertion = true;
+                }
+            }
+        }
+
+        #region MdiChildActivate
+
+        private void Parent_MdiChildActivate(object sender, EventArgs e)
+        {
+            insertStripStatusLabel.Text = "INS";
+            FicheAlimentEnfantForm oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
+
+            if (this.ActiveMdiChild == null)
+            {
+                ficherToolStripStatusLabel.Text = "CrÃ©e ou ouvrir un aliment";
+                DesactiverOperationsMenusBarreOutils();
+            }
+            else
+            {
+                if (oEnfant.ModeInsertion)
+                {
+                    ficherToolStripStatusLabel.Text = this.ActiveMdiChild.Text;
+                }
+            }
+        }
 
         #endregion
 
         #endregion
     }
+
+
+
+    #endregion
+
 }

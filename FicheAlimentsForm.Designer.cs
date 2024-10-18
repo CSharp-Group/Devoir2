@@ -1,4 +1,4 @@
-﻿namespace FicheAliments
+namespace FicheAliments
 {
     partial class Parent
     {
@@ -91,9 +91,9 @@
             this.leftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.bottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ficheAlimentsStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ficherToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.insertStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.langueToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.rightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.topToolStripPanel.SuspendLayout();
@@ -112,7 +112,7 @@
             this.topToolStripPanel.Name = "topToolStripPanel";
             this.topToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.topToolStripPanel.RowMargin = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.topToolStripPanel.Size = new System.Drawing.Size(1109, 68);
+            this.topToolStripPanel.Size = new System.Drawing.Size(1109, 75);
             this.topToolStripPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.updateToolStripPanel);
             // 
             // fichesAlimentsMenuStrip
@@ -159,7 +159,7 @@
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
             this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.nouveauToolStripMenuItem.Text = "&Nouveau";
-            this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.FichierNouveauDocument_Click);
+            this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.FichierNouveau);
             // 
             // ouvrirToolStripMenuItem
             // 
@@ -169,7 +169,7 @@
             this.ouvrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.ouvrirToolStripMenuItem.Text = "&Ouvrir";
-            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
+            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.FichierOuvrir);
             // 
             // fermerToolStripMenuItem
             // 
@@ -177,7 +177,7 @@
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
             this.fermerToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.fermerToolStripMenuItem.Text = "&Fermer";
-            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
+            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.Fermer_Click);
             // 
             // toolStripSeparator
             // 
@@ -190,7 +190,7 @@
             this.enregistrerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.enregistrerToolStripMenuItem.Text = "&Enregistrer";
-            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.FichierEnregistrer);
             // 
             // enregistrerSousToolStripMenuItem
             // 
@@ -199,7 +199,7 @@
             this.enregistrerSousToolStripMenuItem.Name = "enregistrerSousToolStripMenuItem";
             this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.enregistrerSousToolStripMenuItem.Text = "&Enregistrer sous...";
-            this.enregistrerSousToolStripMenuItem.Click += new System.EventHandler(this.enregistrerSousToolStripMenuItem_Click);
+            this.enregistrerSousToolStripMenuItem.Click += new System.EventHandler(this.FichierEnregistrerSous);
             // 
             // toolStripSeparator1
             // 
@@ -211,7 +211,7 @@
             this.sortirToolStripMenuItem.Name = "sortirToolStripMenuItem";
             this.sortirToolStripMenuItem.Size = new System.Drawing.Size(259, 34);
             this.sortirToolStripMenuItem.Text = "&Quitter";
-            this.sortirToolStripMenuItem.Click += new System.EventHandler(this.sortirToolStripMenuItem_Click);
+            this.sortirToolStripMenuItem.Click += new System.EventHandler(this.Quitter_Click);
             // 
             // editionToolStripMenuItem
             // 
@@ -319,7 +319,7 @@
             this.systemeToolStripMenuItem.Name = "systemeToolStripMenuItem";
             this.systemeToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
             this.systemeToolStripMenuItem.Text = "&Système";
-            this.systemeToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
+            this.systemeToolStripMenuItem.Click += new System.EventHandler(this.Affichage_Click);
             // 
             // professionnelToolStripMenuItem
             // 
@@ -327,7 +327,7 @@
             this.professionnelToolStripMenuItem.Name = "professionnelToolStripMenuItem";
             this.professionnelToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
             this.professionnelToolStripMenuItem.Text = "&Professionnel";
-            this.professionnelToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
+            this.professionnelToolStripMenuItem.Click += new System.EventHandler(this.Affichage_Click);
             // 
             // gestionnaireToolStripMenuItem
             // 
@@ -335,7 +335,7 @@
             this.gestionnaireToolStripMenuItem.Name = "gestionnaireToolStripMenuItem";
             this.gestionnaireToolStripMenuItem.Size = new System.Drawing.Size(220, 34);
             this.gestionnaireToolStripMenuItem.Text = "&Gestionnaire";
-            this.gestionnaireToolStripMenuItem.Click += new System.EventHandler(this.affichageMenuStripMenuItem_Click);
+            this.gestionnaireToolStripMenuItem.Click += new System.EventHandler(this.Affichage_Click);
             // 
             // insertionToolStripMenuItem
             // 
@@ -474,7 +474,7 @@
             this.helpToolStripButton});
             this.fichesAlimentsToolStrip.Location = new System.Drawing.Point(5, 35);
             this.fichesAlimentsToolStrip.Name = "fichesAlimentsToolStrip";
-            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(780, 33);
+            this.fichesAlimentsToolStrip.Size = new System.Drawing.Size(734, 33);
             this.fichesAlimentsToolStrip.TabIndex = 6;
             this.fichesAlimentsToolStrip.Text = "toolStrip1";
             // 
@@ -486,7 +486,7 @@
             this.nouveauToolStripButton.Name = "nouveauToolStripButton";
             this.nouveauToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.nouveauToolStripButton.Text = "&Nouveau";
-            this.nouveauToolStripButton.Click += new System.EventHandler(this.FichierNouveauDocument_Click);
+            this.nouveauToolStripButton.Click += new System.EventHandler(this.FichierNouveau);
             // 
             // ouvrireToolStripButton
             // 
@@ -496,7 +496,7 @@
             this.ouvrireToolStripButton.Name = "ouvrireToolStripButton";
             this.ouvrireToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.ouvrireToolStripButton.Text = "&Open";
-            this.ouvrireToolStripButton.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
+            this.ouvrireToolStripButton.Click += new System.EventHandler(this.FichierOuvrir);
             // 
             // enregistrerToolStripButton
             // 
@@ -506,7 +506,7 @@
             this.enregistrerToolStripButton.Name = "enregistrerToolStripButton";
             this.enregistrerToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.enregistrerToolStripButton.Text = "&Save";
-            this.enregistrerToolStripButton.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
+            this.enregistrerToolStripButton.Click += new System.EventHandler(this.FichierEnregistrer);
             // 
             // toolStripSeparator6
             // 
@@ -566,7 +566,7 @@
             this.boldToolStripButton.Name = "boldToolStripButton";
             this.boldToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.boldToolStripButton.Text = "toolStripButton1";
-            this.boldToolStripButton.Click += new System.EventHandler(this.policeToolStripMenuItem_Click);
+            this.boldToolStripButton.Click += new System.EventHandler(this.StylePolice_Click);
             // 
             // italicToolStripButton
             // 
@@ -576,7 +576,7 @@
             this.italicToolStripButton.Name = "italicToolStripButton";
             this.italicToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.italicToolStripButton.Text = "toolStripButton2";
-            this.italicToolStripButton.Click += new System.EventHandler(this.policeToolStripMenuItem_Click);
+            this.italicToolStripButton.Click += new System.EventHandler(this.StylePolice_Click);
             // 
             // underlineToolStripButton
             // 
@@ -586,7 +586,7 @@
             this.underlineToolStripButton.Name = "underlineToolStripButton";
             this.underlineToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.underlineToolStripButton.Text = "toolStripButton3";
-            this.underlineToolStripButton.Click += new System.EventHandler(this.policeToolStripMenuItem_Click);
+            this.underlineToolStripButton.Click += new System.EventHandler(this.StylePolice_Click);
             // 
             // toolStripSeparator8
             // 
@@ -601,7 +601,7 @@
             this.leftAlignToolStripButton.Name = "leftAlignToolStripButton";
             this.leftAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.leftAlignToolStripButton.Text = "toolStripButton4";
-            this.leftAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
+            this.leftAlignToolStripButton.Click += new System.EventHandler(this.Alignement_Click);
             // 
             // rightAlignToolStripButton
             // 
@@ -611,7 +611,7 @@
             this.rightAlignToolStripButton.Name = "rightAlignToolStripButton";
             this.rightAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.rightAlignToolStripButton.Text = "toolStripButton6";
-            this.rightAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
+            this.rightAlignToolStripButton.Click += new System.EventHandler(this.Alignement_Click);
             // 
             // centerAlignToolStripButton
             // 
@@ -621,7 +621,7 @@
             this.centerAlignToolStripButton.Name = "centerAlignToolStripButton";
             this.centerAlignToolStripButton.Size = new System.Drawing.Size(34, 28);
             this.centerAlignToolStripButton.Text = "toolStripButton5";
-            this.centerAlignToolStripButton.Click += new System.EventHandler(this.Alignement);
+            this.centerAlignToolStripButton.Click += new System.EventHandler(this.Alignement_Click);
             // 
             // toolStripSeparator9
             // 
@@ -662,9 +662,9 @@
             this.ficheAlimentsStatusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.ficheAlimentsStatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.ficheAlimentsStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel3,
-            this.toolStripStatusLabel2,
+            this.ficherToolStripStatusLabel,
+            this.capsToolStripStatusLabel,
+            this.insertStripStatusLabel,
             this.langueToolStripStatusLabel});
             this.ficheAlimentsStatusStrip.Location = new System.Drawing.Point(0, 0);
             this.ficheAlimentsStatusStrip.Name = "ficheAlimentsStatusStrip";
@@ -672,34 +672,33 @@
             this.ficheAlimentsStatusStrip.TabIndex = 7;
             this.ficheAlimentsStatusStrip.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // ficherToolStripStatusLabel
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(212, 25);
-            this.toolStripStatusLabel1.Text = "Crée ou ouvrir un aliment";
+            this.ficherToolStripStatusLabel.Name = "ficherToolStripStatusLabel";
+            this.ficherToolStripStatusLabel.Size = new System.Drawing.Size(212, 25);
+            this.ficherToolStripStatusLabel.Text = "Crée ou ouvrir un aliment";
             // 
-            // toolStripStatusLabel3
+            // capsToolStripStatusLabel
             // 
-            this.toolStripStatusLabel3.AutoSize = false;
-            this.toolStripStatusLabel3.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            this.capsToolStripStatusLabel.AutoSize = false;
+            this.capsToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel3.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
-            this.toolStripStatusLabel3.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(40, 25);
+            this.capsToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
+            this.capsToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
+            this.capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
+            this.capsToolStripStatusLabel.Size = new System.Drawing.Size(40, 25);
             // 
-            // toolStripStatusLabel2
+            // insertStripStatusLabel
             // 
-            this.toolStripStatusLabel2.AutoSize = false;
-            this.toolStripStatusLabel2.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripStatusLabel2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            this.insertStripStatusLabel.AutoSize = false;
+            this.insertStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
-            this.toolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(40, 25);
+            this.insertStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.insertStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 4, 5, 3);
+            this.insertStripStatusLabel.Name = "insertStripStatusLabel";
+            this.insertStripStatusLabel.Size = new System.Drawing.Size(40, 25);
             // 
             // langueToolStripStatusLabel
             // 
@@ -728,12 +727,15 @@
             this.Controls.Add(this.bottomToolStripPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.fichesAlimentsMenuStrip;
             this.Name = "Parent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fiches des aliments";
             this.Load += new System.EventHandler(this.Parent_Load);
+            this.MdiChildActivate += new System.EventHandler(this.Parent_MdiChildActivate);
             this.Click += new System.EventHandler(this.Edition_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parent_KeyDown);
             this.topToolStripPanel.ResumeLayout(false);
             this.topToolStripPanel.PerformLayout();
             this.fichesAlimentsMenuStrip.ResumeLayout(false);
@@ -800,9 +802,8 @@
         private System.Windows.Forms.ToolStripMenuItem aideListeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox questionToolStripTextBox;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel ficherToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel capsToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel langueToolStripStatusLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         internal System.Windows.Forms.ToolStripButton boldToolStripButton;
@@ -818,6 +819,7 @@
         internal System.Windows.Forms.ToolStripButton copierToolStripButton;
         internal System.Windows.Forms.ToolStripButton collerToolStripButton;
         internal System.Windows.Forms.ToolStrip fichesAlimentsToolStrip;
+        private System.Windows.Forms.ToolStripStatusLabel insertStripStatusLabel;
     }
 }
 

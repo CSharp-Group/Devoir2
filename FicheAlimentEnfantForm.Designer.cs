@@ -80,7 +80,7 @@
             this.nomTextBox.Name = "nomTextBox";
             this.nomTextBox.Size = new System.Drawing.Size(417, 26);
             this.nomTextBox.TabIndex = 4;
-            this.nomTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
+            this.nomTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // prenomTextBox
             // 
@@ -88,7 +88,7 @@
             this.prenomTextBox.Name = "prenomTextBox";
             this.prenomTextBox.Size = new System.Drawing.Size(417, 26);
             this.prenomTextBox.TabIndex = 5;
-            this.prenomTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
+            this.prenomTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // infoRichTextBox
             // 
@@ -98,7 +98,7 @@
             this.infoRichTextBox.TabIndex = 7;
             this.infoRichTextBox.Text = "";
             this.infoRichTextBox.SelectionChanged += new System.EventHandler(this.infoRichTextBox_SelectionChanged);
-            this.infoRichTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
+            this.infoRichTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // telephoneMaskedTextBox
             // 
@@ -107,7 +107,7 @@
             this.telephoneMaskedTextBox.Name = "telephoneMaskedTextBox";
             this.telephoneMaskedTextBox.Size = new System.Drawing.Size(165, 26);
             this.telephoneMaskedTextBox.TabIndex = 8;
-            this.telephoneMaskedTextBox.TextChanged += new System.EventHandler(this.clientTextBox_TextChanged);
+            this.telephoneMaskedTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // FicheAlimentEnfantForm
             // 
@@ -122,10 +122,11 @@
             this.Controls.Add(this.telephoneLabel);
             this.Controls.Add(this.prenomLabel);
             this.Controls.Add(this.nomLabel);
+            this.KeyPreview = true;
             this.Name = "FicheAlimentEnfantForm";
             this.Text = "Aliment";
             this.Activated += new System.EventHandler(this.ClientActivated);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FicheAlimentEnfantForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EnfantFormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
