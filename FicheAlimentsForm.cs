@@ -238,7 +238,7 @@ namespace FicheAliments
                     oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
                     oEnfant.Enregistrer();
 
-                    fichierStripStatusLabel.Text = oEnfant.Text;
+                    ficherToolStripStatusLabel.Text = oEnfant.Text;
                 }
             }
             catch (Exception ex)
@@ -532,6 +532,7 @@ namespace FicheAliments
 
         private void Parent_MdiChildActivate(object sender, EventArgs e)
         {
+            insertStripStatusLabel.Text = "INS";
             FicheAlimentEnfantForm oEnfant = (FicheAlimentEnfantForm)this.ActiveMdiChild;
 
             if (this.ActiveMdiChild == null)
