@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -35,7 +36,6 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
-
         }
 
         private void Parent_Load(object sender, EventArgs e)
@@ -148,8 +148,8 @@ namespace FicheAliments
                 }
                 else
                 {
-                    toolStripComboBox1.Visible = false;
-                    toolStripComboBox2.Visible = false;
+                    policeToolStripComboBox.Visible = false;
+                    sizeToolStipComboBox.Visible = false;
                 }
             }
             else if (parentName == "topToolStripPanel" || parentName == "bottomToolStripPanel")
@@ -163,8 +163,8 @@ namespace FicheAliments
                 }
                 else
                 {
-                    toolStripComboBox1.Visible = true;
-                    toolStripComboBox2.Visible = true;
+                    policeToolStripComboBox.Visible = true;
+                    sizeToolStipComboBox.Visible = true;
                 }
             }
         }
@@ -552,9 +552,37 @@ namespace FicheAliments
         #endregion
 
         #endregion
+
+        #region PoliceToolStripMenuItem
+
+        private void policeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
+                {
+                    RichTextBox enfantRichTextBox = oEnfant.infoRichTextBox;
+
+                    using (FontDialog fontDialog = new FontDialog())
+                    {
+                        fontDialog.Font = enfantRichTextBox.SelectionFont;
+
+                        if (fontDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            enfantRichTextBox.SelectionFont = fontDialog.Font;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        #endregion
+
     }
-
-
 
     #endregion
 
