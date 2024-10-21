@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -35,7 +36,6 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
-
         }
 
         private void Parent_Load(object sender, EventArgs e)
@@ -47,6 +47,8 @@ namespace FicheAliments
                 capsToolStripStatusLabel.Text = "MAJ";
             else
                 capsToolStripStatusLabel.Text = "";
+
+            AfficherPolicesInstallées(sender,e);
         }
         #endregion
 
@@ -148,8 +150,8 @@ namespace FicheAliments
                 }
                 else
                 {
-                    toolStripComboBox1.Visible = false;
-                    toolStripComboBox2.Visible = false;
+                    toolStripComboBoxPolice.Visible = false;
+                    toolStripComboBoxTaillesDePolice.Visible = false;
                 }
             }
             else if (parentName == "topToolStripPanel" || parentName == "bottomToolStripPanel")
@@ -163,8 +165,8 @@ namespace FicheAliments
                 }
                 else
                 {
-                    toolStripComboBox1.Visible = true;
-                    toolStripComboBox2.Visible = true;
+                    toolStripComboBoxPolice.Visible = true;
+                    toolStripComboBoxTaillesDePolice.Visible = true;
                 }
             }
         }
@@ -551,6 +553,42 @@ namespace FicheAliments
 
         #endregion
 
+        #endregion
+
+        #region AfficherPolicesInstallées
+        private void AfficherPolicesInstallées(object sender, EventArgs e)
+        {
+            try
+            {
+                // Créer une collection de polices et obtenir les polices installées
+                FontFamily[] fontFamilies;
+                InstalledFontCollection installedFontCollection = new InstalledFontCollection();
+
+                fontFamilies = installedFontCollection.Families;
+
+                // Ajouter les tailles de police au ToolStripComboBoxTailePolice 8-16
+                for (int i = 8; i <= 16; i += 2)
+                {
+                    toolStripComboBoxTaillesDePolice.Items.Add(i);
+                }
+
+                // Ajouter les noms des polices installées au ToolStripComboBox
+                foreach (FontFamily fontFamily in fontFamilies)
+                {
+                    toolStripComboBoxPolice.Items.Add(fontFamily.Name);
+                }
+
+                // Sélectionner la première police et la première taille de police
+                if (toolStripComboBoxTaillesDePolice.Items.Count > 0)
+                    toolStripComboBoxTaillesDePolice.SelectedIndex = 0;
+                if (toolStripComboBoxPolice.Items.Count > 0)
+                    toolStripComboBoxPolice.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}", "Erreur pendant l'affichage des polices installées");
+            }
+        }
         #endregion
     }
 
