@@ -63,6 +63,12 @@
     <Compile Include="Objet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RechercherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RechercherForm.Designer.cs">
+      <DependentUpon>RechercherForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FicheAlimentEnfantForm.resx">
       <DependentUpon>FicheAlimentEnfantForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +88,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RechercherForm.resx">
+      <DependentUpon>RechercherForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="FicheAlimentClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
