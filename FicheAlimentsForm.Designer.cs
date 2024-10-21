@@ -77,8 +77,8 @@ namespace FicheAliments
             this.copierToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.collerToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripComboBoxPolice = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBoxTaillesDePolice = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
             this.boldToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.italicToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.underlineToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -461,8 +461,8 @@ namespace FicheAliments
             this.copierToolStripButton,
             this.collerToolStripButton,
             this.toolStripSeparator7,
-            this.toolStripComboBoxPolice,
-            this.toolStripComboBoxTaillesDePolice,
+            this.toolStripComboBox1,
+            this.toolStripComboBox2,
             this.boldToolStripButton,
             this.italicToolStripButton,
             this.underlineToolStripButton,
@@ -546,17 +546,17 @@ namespace FicheAliments
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 33);
             // 
-            // toolStripComboBoxPolice
+            // toolStripComboBox1
             // 
-            this.toolStripComboBoxPolice.Name = "toolStripComboBoxPolice";
-            this.toolStripComboBoxPolice.Size = new System.Drawing.Size(121, 31);
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 33);
             // 
-            // toolStripComboBoxTaillesDePolice
+            // toolStripComboBox2
             // 
-            this.toolStripComboBoxTaillesDePolice.Name = "toolStripComboBoxTaillesDePolice";
-            this.toolStripComboBoxTaillesDePolice.Size = new System.Drawing.Size(121, 31);
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 33);
             // 
             // boldToolStripButton
             // 
@@ -783,8 +783,8 @@ namespace FicheAliments
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.StatusStrip ficheAlimentsStatusStrip;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxPolice;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxTaillesDePolice;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
