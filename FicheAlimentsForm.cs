@@ -50,11 +50,11 @@ namespace FicheAliments
 
             AfficherPolicesInstallées(sender,e);
 
-            this.toolStripComboBox1.SelectedIndexChanged -= toolStripComboBox1_SelectedIndexChanged;
-            this.toolStripComboBox2.SelectedIndexChanged -= toolStripComboBox2_SelectedIndexChanged;
+            this.toolStripComboBoxPolice.SelectedIndexChanged -= toolStripComboBoxPolice_SelectedIndexChanged;
+            this.toolStripComboBoxTaillesDePolice.SelectedIndexChanged -= toolStripComboBoxTaillesDePolice_SelectedIndexChanged;
 
-            this.toolStripComboBox1.SelectedIndexChanged += toolStripComboBox1_SelectedIndexChanged;
-            this.toolStripComboBox2.SelectedIndexChanged += toolStripComboBox2_SelectedIndexChanged;
+            this.toolStripComboBoxPolice.SelectedIndexChanged += toolStripComboBoxPolice_SelectedIndexChanged;
+            this.toolStripComboBoxTaillesDePolice.SelectedIndexChanged += toolStripComboBoxTaillesDePolice_SelectedIndexChanged;
         }
         #endregion
 
@@ -597,14 +597,18 @@ namespace FicheAliments
         }
         #endregion
 
-        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        #region Police Selected Index Change
+        private void toolStripComboBoxPolice_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        private void toolStripComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        #endregion
+        #region Taille de Police Selected Index Change
+        private void toolStripComboBoxTaillesDePolice_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        #endregion
     }
 
 
