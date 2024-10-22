@@ -594,6 +594,40 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}", "Erreur pendant l'affichage des polices installées");
             }
+
+            // Event handler pour dessiner les polices dans le ToolStripComboBox
+            ComboBox cb = toolStripComboBoxPolice.ComboBox;
+            cb.DrawMode = DrawMode.OwnerDrawFixed;
+
+            cb.DrawItem += new DrawItemEventHandler(ComboBox_DrawItem);
+            cb.MeasureItem += new MeasureItemEventHandler(ComboBox_MeasureItem);
+        }
+
+        private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0)
+                return;
+
+            ComboBox cb = sender as ComboBox;
+            string text = cb.Items[e.Index].ToString();
+            FontFamily fontFamily = new FontFamily(text);
+            Font font = new Font(fontFamily, 12);
+
+            e.DrawBackground();
+            e.Graphics.DrawString(text, font, Brushes.Black, e.Bounds.X, e.Bounds.Y);
+        }
+
+        private void ComboBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            if (e.Index < 0)
+                return;
+
+            ComboBox cb = sender as ComboBox;
+            string text = cb.Items[e.Index].ToString();
+            FontFamily fontFamily = new FontFamily(text);
+            Font font = new Font(fontFamily, 12);
+
+            e.ItemHeight = (int)e.Graphics.MeasureString(text, font).Height;
         }
         #endregion
 
@@ -603,6 +637,7 @@ namespace FicheAliments
 
         }
         #endregion
+
         #region Taille de Police Selected Index Change
         private void toolStripComboBoxTaillesDePolice_SelectedIndexChanged(object sender, EventArgs e)
         {
