@@ -49,6 +49,12 @@ namespace FicheAliments
                 capsToolStripStatusLabel.Text = "";
 
             AfficherPolicesInstallées(sender,e);
+
+            this.toolStripComboBox1.SelectedIndexChanged -= toolStripComboBox1_SelectedIndexChanged;
+            this.toolStripComboBox2.SelectedIndexChanged -= toolStripComboBox2_SelectedIndexChanged;
+
+            this.toolStripComboBox1.SelectedIndexChanged += toolStripComboBox1_SelectedIndexChanged;
+            this.toolStripComboBox2.SelectedIndexChanged += toolStripComboBox2_SelectedIndexChanged;
         }
         #endregion
 
@@ -590,6 +596,15 @@ namespace FicheAliments
             }
         }
         #endregion
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void toolStripComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
