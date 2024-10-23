@@ -36,6 +36,7 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
+
         }
 
         private void Parent_Load(object sender, EventArgs e)
