@@ -129,7 +129,7 @@ namespace FicheAliments
             (item).Checked = true;
         }
         #endregion
-        
+
         #endregion
 
         #region ToolStripPanel
@@ -149,7 +149,7 @@ namespace FicheAliments
                 else
                 {
                     toolStripComboBox1.Visible = false;
-                    toolStripComboBox2.Visible = false;
+                    sizeToolStipComboBox.Visible = false;
                 }
             }
             else if (parentName == "topToolStripPanel" || parentName == "bottomToolStripPanel")
@@ -164,7 +164,7 @@ namespace FicheAliments
                 else
                 {
                     toolStripComboBox1.Visible = true;
-                    toolStripComboBox2.Visible = true;
+                    sizeToolStipComboBox.Visible = true;
                 }
             }
         }
@@ -498,7 +498,7 @@ namespace FicheAliments
             }
         }
         #endregion
-        
+
         #region KeyDown
 
         private void Parent_KeyDown(object sender, KeyEventArgs e)
@@ -552,6 +552,30 @@ namespace FicheAliments
         #endregion
 
         #endregion
+
+        private void sizeToolStipComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+            try
+            {
+                if (oEnfant != null && oEnfant.infoRichTextBox != null && oEnfant.infoRichTextBox.SelectionFont != null)
+                {
+                    Font enfantRichTextBoxFont = oEnfant.infoRichTextBox.SelectionFont;
+                    float size = float.Parse(sizeToolStipComboBox.SelectedItem.ToString());
+                    if (enfantRichTextBoxFont != null)
+                    {
+                        oEnfant.infoRichTextBox.SelectionFont = new Font(enfantRichTextBoxFont.FontFamily,
+                            size, enfantRichTextBoxFont.Style);
+                    }
+                    oEnfant.infoRichTextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
     }
 
 
