@@ -36,6 +36,7 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
+            AfficherPolicesInstallées();
         }
 
         private void Parent_Load(object sender, EventArgs e)
@@ -581,6 +582,87 @@ namespace FicheAliments
         }
 
         #endregion
+
+        private void policeToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+
+            try
+            {
+                if (oEnfant != null && oEnfant.infoRichTextBox != null && oEnfant.infoRichTextBox.SelectionFont != null)
+                {
+                    Font enfantRichTextBoxFont = oEnfant.infoRichTextBox.SelectionFont;
+
+                    string selectedFont = policeToolStripComboBox.SelectedItem.ToString();
+
+                    if (enfantRichTextBoxFont != null)
+                    {
+                        oEnfant.infoRichTextBox.SelectionFont = new Font(selectedFont, enfantRichTextBoxFont.Size);
+                    }
+
+                    oEnfant.infoRichTextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        private void sizeToolStipComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+
+            try
+            {
+                if (oEnfant != null && oEnfant.infoRichTextBox != null && oEnfant.infoRichTextBox.SelectionFont != null)
+                {
+                    Font enfantRichTextBoxFont = oEnfant.infoRichTextBox.SelectionFont;
+
+                    float size = float.Parse(sizeToolStipComboBox.SelectedItem.ToString());
+
+                    if (enfantRichTextBoxFont != null)
+                    {
+                        oEnfant.infoRichTextBox.SelectionFont = new Font(enfantRichTextBoxFont.FontFamily,
+                            size, enfantRichTextBoxFont.Style);
+                    }
+
+                    oEnfant.infoRichTextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        private void AfficherPolicesInstallées()
+        {
+            try
+            {
+                // Créer une collection de polices et obtenir les polices installées
+                FontFamily[] fontFamilies;
+                InstalledFontCollection installedFontCollection = new InstalledFontCollection();
+
+                fontFamilies = installedFontCollection.Families;
+
+                // Ajouter les noms des polices installées au ToolStripComboBox
+                foreach (FontFamily fontFamily in fontFamilies)
+                {
+                    policeToolStripComboBox.Items.Add(fontFamily.Name);
+                }
+
+                // Sélectionner la première police et la première taille de police
+                if (policeToolStripComboBox.Items.Count > 0)
+                    policeToolStripComboBox.SelectedIndex = 0;
+                if (policeToolStripComboBox.Items.Count > 0)
+                    policeToolStripComboBox.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}", "Erreur pendant l'affichage des polices installées");
+            }
+        }
 
     }
 

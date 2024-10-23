@@ -553,6 +553,7 @@ namespace FicheAliments
             // 
             this.policeToolStripComboBox.Name = "policeToolStripComboBox";
             this.policeToolStripComboBox.Size = new System.Drawing.Size(121, 33);
+            this.policeToolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.policeToolStripComboBox_SelectedIndexChanged);
             // 
             // sizeToolStipComboBox
             // 
@@ -564,6 +565,7 @@ namespace FicheAliments
             "16"});
             this.sizeToolStipComboBox.Name = "sizeToolStipComboBox";
             this.sizeToolStipComboBox.Size = new System.Drawing.Size(121, 33);
+            this.sizeToolStipComboBox.SelectedIndexChanged += new System.EventHandler(this.sizeToolStipComboBox_SelectedIndexChanged);
             // 
             // boldToolStripButton
             // 
