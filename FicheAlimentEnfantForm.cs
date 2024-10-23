@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -201,9 +201,12 @@ namespace FicheAliments
         {
             Parent oParent = this.MdiParent as Parent;
 
-            oParent.boldToolStripButton.Checked = infoRichTextBox.SelectionFont.Bold;
-            oParent.italicToolStripButton.Checked = infoRichTextBox.SelectionFont.Italic;
-            oParent.underlineToolStripButton.Checked = infoRichTextBox.SelectionFont.Underline;
+            if (infoRichTextBox.SelectionFont != null)
+            {
+                oParent.boldToolStripButton.Checked = infoRichTextBox.SelectionFont.Bold;
+                oParent.italicToolStripButton.Checked = infoRichTextBox.SelectionFont.Italic;
+                oParent.underlineToolStripButton.Checked = infoRichTextBox.SelectionFont.Underline;
+            }
 
             if(Clipboard.ContainsText() || Clipboard.ContainsImage())
             {
