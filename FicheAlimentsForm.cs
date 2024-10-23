@@ -36,6 +36,7 @@ namespace FicheAliments
         public Parent()
         {
             InitializeComponent();
+
         }
 
         private void Parent_Load(object sender, EventArgs e)
@@ -49,6 +50,12 @@ namespace FicheAliments
                 capsToolStripStatusLabel.Text = "";
 
             AfficherPolicesInstallées(sender,e);
+
+            this.toolStripComboBoxPolice.SelectedIndexChanged -= toolStripComboBoxPolice_SelectedIndexChanged;
+            this.toolStripComboBoxTaillesDePolice.SelectedIndexChanged -= toolStripComboBoxTaillesDePolice_SelectedIndexChanged;
+
+            this.toolStripComboBoxPolice.SelectedIndexChanged += toolStripComboBoxPolice_SelectedIndexChanged;
+            this.toolStripComboBoxTaillesDePolice.SelectedIndexChanged += toolStripComboBoxTaillesDePolice_SelectedIndexChanged;
         }
         #endregion
 
@@ -131,7 +138,7 @@ namespace FicheAliments
             (item).Checked = true;
         }
         #endregion
-        
+
         #endregion
 
         #region ToolStripPanel
@@ -500,7 +507,7 @@ namespace FicheAliments
             }
         }
         #endregion
-        
+
         #region KeyDown
 
         private void Parent_KeyDown(object sender, KeyEventArgs e)
@@ -588,12 +595,128 @@ namespace FicheAliments
             {
                 MessageBox.Show($"Erreur: {ex.Message}", "Erreur pendant l'affichage des polices installées");
             }
+
+            // Event handler pour dessiner les polices dans le ToolStripComboBox
+            ComboBox cb = toolStripComboBoxPolice.ComboBox;
+            cb.DrawMode = DrawMode.OwnerDrawFixed;
+
+            cb.DrawItem += new DrawItemEventHandler(ComboBox_DrawItem);
+            cb.MeasureItem += new MeasureItemEventHandler(ComboBox_MeasureItem);
+        }
+
+        private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0)
+                return;
+
+            ComboBox cb = sender as ComboBox;
+            string text = cb.Items[e.Index].ToString();
+            FontFamily fontFamily = new FontFamily(text);
+            Font font = new Font(fontFamily, 12);
+
+            e.DrawBackground();
+            e.Graphics.DrawString(text, font, Brushes.Black, e.Bounds.X, e.Bounds.Y);
+        }
+
+        private void ComboBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            if (e.Index < 0)
+                return;
+
+            ComboBox cb = sender as ComboBox;
+            string text = cb.Items[e.Index].ToString();
+            FontFamily fontFamily = new FontFamily(text);
+            Font font = new Font(fontFamily, 12);
+
+            e.ItemHeight = (int)e.Graphics.MeasureString(text, font).Height;
         }
         #endregion
+
+        #region Police Selected Index Change
+        private void toolStripComboBoxPolice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+
+            try
+            {
+                if (oEnfant != null && oEnfant.infoRichTextBox != null && oEnfant.infoRichTextBox.SelectionFont != null)
+                {
+                    Font enfantRichTextBoxFont = oEnfant.infoRichTextBox.SelectionFont;
+
+                    string selectedFont = toolStripComboBoxPolice.SelectedItem.ToString();
+
+                    if (enfantRichTextBoxFont != null)
+                    {
+                        oEnfant.infoRichTextBox.SelectionFont = new Font(selectedFont, enfantRichTextBoxFont.Size);
+                    }
+
+                    oEnfant.infoRichTextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+        #endregion
+
+        #region Taille de Police Selected Index Change
+        private void toolStripComboBoxTaillesDePolice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+            try
+            {
+                if (oEnfant != null && oEnfant.infoRichTextBox != null && oEnfant.infoRichTextBox.SelectionFont != null)
+                {
+                    Font enfantRichTextBoxFont = oEnfant.infoRichTextBox.SelectionFont;
+                    float size = float.Parse(toolStripComboBoxTaillesDePolice.SelectedItem.ToString());
+                    if (enfantRichTextBoxFont != null)
+                    {
+                        oEnfant.infoRichTextBox.SelectionFont = new Font(enfantRichTextBoxFont.FontFamily,
+                            size, enfantRichTextBoxFont.Style);
+                    }
+                    oEnfant.infoRichTextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+        #endregion
+
+        #region PoliceToolStripMenuItem
+
+        private void policeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
+                {
+                    RichTextBox enfantRichTextBox = oEnfant.infoRichTextBox;
+
+                    using (FontDialog fontDialog = new FontDialog())
+                    {
+                        fontDialog.Font = enfantRichTextBox.SelectionFont;
+
+                        if (fontDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            enfantRichTextBox.SelectionFont = fontDialog.Font;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        #endregion
+        #endregion
     }
-
-
-
-    #endregion
-
 }
+
+    
+
+
