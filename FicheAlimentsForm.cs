@@ -634,7 +634,28 @@ namespace FicheAliments
         #region Police Selected Index Change
         private void toolStripComboBoxPolice_SelectedIndexChanged(object sender, EventArgs e)
         {
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
 
+            try
+            {
+                if (oEnfant != null && oEnfant.infoRichTextBox != null && oEnfant.infoRichTextBox.SelectionFont != null)
+                {
+                    Font enfantRichTextBoxFont = oEnfant.infoRichTextBox.SelectionFont;
+
+                    string selectedFont = toolStripComboBoxPolice.SelectedItem.ToString();
+
+                    if (enfantRichTextBoxFont != null)
+                    {
+                        oEnfant.infoRichTextBox.SelectionFont = new Font(selectedFont, enfantRichTextBoxFont.Size);
+                    }
+
+                    oEnfant.infoRichTextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
         }
         #endregion
 
@@ -662,10 +683,39 @@ namespace FicheAliments
             }
         }
         #endregion
+
+        #region PoliceToolStripMenuItem
+
+        private void policeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.ActiveMdiChild is FicheAlimentEnfantForm oEnfant)
+                {
+                    RichTextBox enfantRichTextBox = oEnfant.infoRichTextBox;
+
+                    using (FontDialog fontDialog = new FontDialog())
+                    {
+                        fontDialog.Font = enfantRichTextBox.SelectionFont;
+
+                        if (fontDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            enfantRichTextBox.SelectionFont = fontDialog.Font;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
+        }
+
+        #endregion
+        #endregion
     }
-
-
-
-    #endregion
-
 }
+
+    
+
+

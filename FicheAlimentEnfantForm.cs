@@ -244,6 +244,12 @@ namespace FicheAliments
                 oParent.centerAlignToolStripButton.Checked = false;
                 oParent.rightAlignToolStripButton.Checked = true; 
             }
+
+            if (infoRichTextBox.SelectionFont != null)
+            {
+                oParent.toolStripComboBoxPolice.Text = infoRichTextBox.SelectionFont.Name;
+                oParent.toolStripComboBoxTaillesDePolice.Text = infoRichTextBox.SelectionFont.Size.ToString();
+            }    
         }
         #endregion
 
@@ -269,6 +275,8 @@ namespace FicheAliments
             infoRichTextBox_SelectionChanged(null, null);
         }
         #endregion
+
+
 
         #endregion
     }
