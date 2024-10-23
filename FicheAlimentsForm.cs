@@ -137,7 +137,7 @@ namespace FicheAliments
             (item).Checked = true;
         }
         #endregion
-        
+
         #endregion
 
         #region ToolStripPanel
@@ -506,7 +506,7 @@ namespace FicheAliments
             }
         }
         #endregion
-        
+
         #region KeyDown
 
         private void Parent_KeyDown(object sender, KeyEventArgs e)
@@ -641,7 +641,25 @@ namespace FicheAliments
         #region Taille de Police Selected Index Change
         private void toolStripComboBoxTaillesDePolice_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            FicheAlimentEnfantForm oEnfant = this.ActiveMdiChild as FicheAlimentEnfantForm;
+            try
+            {
+                if (oEnfant != null && oEnfant.infoRichTextBox != null && oEnfant.infoRichTextBox.SelectionFont != null)
+                {
+                    Font enfantRichTextBoxFont = oEnfant.infoRichTextBox.SelectionFont;
+                    float size = float.Parse(toolStripComboBoxTaillesDePolice.SelectedItem.ToString());
+                    if (enfantRichTextBoxFont != null)
+                    {
+                        oEnfant.infoRichTextBox.SelectionFont = new Font(enfantRichTextBoxFont.FontFamily,
+                            size, enfantRichTextBoxFont.Style);
+                    }
+                    oEnfant.infoRichTextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur: {ex.Message}");
+            }
         }
         #endregion
     }
